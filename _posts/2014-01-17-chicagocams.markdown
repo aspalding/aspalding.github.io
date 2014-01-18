@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "ChicagoCams."
-date:   2014-01-11
+date:   2014-01-17
 ---
 
 Over the past couple months I have been working on an Android application that notifies users when they are about to pass one of the new speed cameras that the city of Chicago has installed over the past six months. Over the next week or so I am planning on putting the final touches on the application and launching it into the Play store. 
