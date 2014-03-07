@@ -10,8 +10,7 @@ The application was a lot of fun to develop and I enjoyed getting into the car w
 
 One ironic thing that had me stumped for a couple minutes. The initial data for the camera’s was found on the city of Chicago’s own website. However, their developers seem to have reversed latitude and longitude in their json files. Everybody makes mistakes and they may not have realized other developers would be paying that close attention to their data. Anyway without further ado, heres the demo. 
 
-<div class="row text-center">
+</br><div class="row text-center">
 <iframe width="420" height="315" src="//www.youtube.com/embed/Z-tpSanODgE" frameborder="0" allowfullscreen></iframe>
 </div>
 
-Till next time. 
