@@ -1,8 +1,28 @@
 ---
 layout: default
 ---
-<div class="container"><div class="col-md-10 col-xs-10">
-  <h2>{{ page.title }}</h2>
-  <p class="meta">{{ page.date | date_to_string }}</p>
-  {{ content }}
-</div></div>
+<div class="container">
+  <div class="col-md-10 col-xs-10">
+    <h2>{{ page.title }}</h2>
+    <p class="meta">{{ page.date | date_to_string }}</p>
+    {{ content }}
+  </div>
+</div>
+
+<div class="container">
+  <div class="col-md-10 col-xs-10">
+  {% if page.previous.url %} 
+    <a class="btn btn-default btn-xs pull-left" href="{{page.previous.url}}">
+      <span class="glyphicon glyphicon-chevron-left"></span> {{page.previous.title}}
+    </a> 
+  {% endif %} 
+  {% if page.next.url %} 
+    <a class="btn btn-default btn-xs pull-right" href="{{page.next.url}}">
+      {{page.next.title}}<span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+  {% endif %} 
+  </div>
+</div>
+
+
+

@@ -1,0 +1,9 @@
+- name: ChicagoCams
+  description: This android application vocally notifies users when they are approaching one of the newly installed speed cameras in Chicago. Utilizes the android location services to get GPS data.  
+  github: https://github.com/aspalding/ChicagoCams
+  icon: icon-google-developers fa-3x
+  
+- name: Blog
+  description: The page you are currently viewing. 
+  github: https://github.com/aspalding/aspalding.github.io
+  icon: icon-ruby fa-3x
