@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Jekyll is pretty cool!</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/custom.css">
+        
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+        <link href="/assets/font/font-mfizz.css" rel="stylesheet">
+        
+    </head>
+    <body>
+      <div class="container">
+        
+          <div class="row">
+            <h1><a href="/">atj</a>
+            <small>rambles and babbles.</small></h1>
+          </div>
+        
+          <div class="row">
+            <div class="container">
+  <div class="col-md-10 col-xs-10">
+    <h2>Jekyll is pretty cool!</h2>
+    <p class="meta">19 Mar 2014</p>
+    <p>Just finished putting some additional content on my blog. It&#39;s finally starting to look like a website. Anyway, for a static website generator theres some pretty cool features included in <a href="http://jekyllrb.com/">Jekyll</a>. For example, for my <a href="http://aspalding.github.io/work/">projects page</a> I was able to define the data in a seperate file in a directory called <code>_data</code> and then just loop through it with the liquid templating engine. It almost feels like using a database to populate the website! It&#39;s quite nice when you don&#39;t have to repeat yourself.</p>
+
+<p>The templating engine works pretty similarly to Django&#39;s templating engine, handlebars, jinga2, etc. Just as an example, this is more or less how I utilized this feature of Jekyll. </p>
+
+<div class="highlight"><pre><code class="django"><span class="cp">{%</span> <span class="k">for</span> <span class="nv">project</span> <span class="k">in</span> <span class="nv">site.data.projects</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">  </span><span class="cp">{{</span> <span class="nv">project.name</span> <span class="cp">}}</span><span class="x"></span>
+<span class="x">  </span><span class="cp">{{</span> <span class="nv">project.description</span> <span class="cp">}}</span><span class="x"></span>
+<span class="x">  </span><span class="cp">{{</span> <span class="nv">project.github</span> <span class="cp">}}</span><span class="x"></span>
+<span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span><span class="x"></span></code></pre></div>
+
+<p>Initially I planned on putting some visual tweaks on the site with javascript and jQuery. I wasn&#39;t quite happy with the result, especially on mobile. Trying to keep this site looking decent on mobile. Anyway, I&#39;ll have to find a more substantial project to work on with a JS MVC framework to get some good experience working with that. </p>
+
+  </div>
+</div>
+
+<div class="container">
+  <div class="col-md-10 col-xs-10">
+   
+    <a class="btn btn-default btn-xs pull-left" href="/2014/01/17/chicagocams.html">
+      <span class="glyphicon glyphicon-chevron-left"></span> ChicagoCams.
+    </a> 
+   
+   
+    <a class="btn btn-default btn-xs pull-right" href="/2014/05/19/firstday.html">
+      First day at 8th Light.<span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+   
+  </div>
+</div>
+
+
+
+
+          </div>
+          
+          
+            <div class="col-md-10 col-xs-10 text-center">
+              <a href="/"><span class="glyphicon glyphicon-home"> home&nbsp</a></span>
+              <a href="/work/"><span class="glyphicon glyphicon-briefcase"> work&nbsp</a></span>
+              <a href="/contact/"><span class="glyphicon glyphicon-envelope"> contact&nbsp</a></span>
+            </div>
+          
+          
+        </div>
+    </body>
+
+    <div id="wrapper">
+      <div id="sidebg-wrapper">
+      </div>
+    </div>
+    
+  	<script>
+  	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  	  ga('create', 'UA-47463347-1', 'aspalding.github.io');
+  	  ga('send', 'pageview');
+
+  	</script>
+    
+</html>
