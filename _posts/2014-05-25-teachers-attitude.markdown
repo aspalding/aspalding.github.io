@@ -27,7 +27,7 @@ def valid(position):
   return this or that
 {% endhighlight %}
 
-The apprentice was able to tell me her goal; to recursively call the function to request a new position if the input was not valid. I immediately decided to try and track down her base case and recursive case. Upon realizing that there was no recursive call in the body I asked where she attempting to make her recursive call, it turned out to be in a separate function that I believe was redundant. As a result I suggested that we eliminate this function and simply relocate the conditional in the `move` function, then recursively call the function if an invalid position was given. We arrived at a solution similar to the pseudocode below:
+The apprentice was able to tell me her goal; to recursively call the function to request a new position if the input was not valid. I immediately decided to try and track down her base case and recursive case. Upon realizing that there was no recursive call in the body I asked where she was attempting to make her recursive call, it turned out to be in a separate function that I believe was redundant. As a result I suggested that we eliminate this function and simply relocate the conditional to the `move` function, then recursively call the function if an invalid position was given. We arrived at a solution similar to the pseudocode below:
 
 {% highlight python %}
 def move(position, mark)
@@ -46,6 +46,6 @@ def valid(position):
 
 Nothing was lost by refactoring the redundant function, and to be honest, the `out` function could be refactored into the move function as well in my opinion. However, I do not think I made a good enough case or gave sufficient enough advice for her to understand exactly why her attempt was unsuccessful and why the revised solution worked.
 
-This interaction made me realize another goal that I'd like to achieve at 8th Light. To be able to express myself vocally (as opposed to written advice, in which I do not struggle as much) in the domain of my career. I realize that this skill will not only help people requesting help from me, but will also enhance my own ability to express issues that I am experiencing myself.
+This interaction made me realize another goal that I'd like to achieve at 8th Light. To be able to express myself vocally in the domain of my career (as opposed to written advice, in which I do not struggle as much). I realize that this skill will not only help people requesting help from me, but will also enhance my own ability to express issues that I am experiencing myself.
 
 [Univ]: http://university.8thlight.com/
