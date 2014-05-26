@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>{{ page.title }}</title>
+        <title>TDD and treadmill workstations?</title>
         <meta name="viewport" content="width=device-width">
 
         <!-- syntax highlighting CSS -->
@@ -21,38 +21,53 @@
       <div class="container">
 
           <div class="row">
-            <h1><a href="/">{{ site.name }}</a>
+            <h1><a href="/">atj</a>
             <small>rambles and babbles.</small></h1>
           </div>
 
           <div class="row">
             <div class="col-md-10 col-xs-10">
-              {{ content }}
+              <div class="container">
+  <div class="col-md-10 col-xs-10">
+    <h2>TDD and treadmill workstations?</h2>
+    <p class="meta">20 May 2014</p>
+    <p>Second day at 8th Light. Spent the morning practicing my bowling kata. Showed my mentor and he critiqued my work. We talked a bit about each of the three rules of Test Driven Design, what they mean, is it okay to break them sometimes?</p>
+
+<p>We wound up spending a bit of time pair programming switching back and forth between writing tests and passing them, something I hadn&#39;t personally experienced before coming to 8th Light. Pair programming seems to be a good method to keep two people working on a piece of software on the same page. It gave me a better idea of how I should approach TDD. Additionally, it seems like a great way to get an understanding of another programmers style. </p>
+
+<p>One more thing. I wound up spending 10-20 minutes on the treadmill workstation. Surprisingly enough, I didn&#39;t feel any less productive while walking on the treadmill and writing code. It seems like a bit of a novelty but its definitely a cool idea. Maybe if I spend more time on there I won&#39;t wind up with a hunchback. </p>
+
+  </div>
+</div>
+
+<div class="container">
+  <div class="col-md-10 col-xs-10">
+   
+    <a class="btn btn-default btn-xs pull-left" href="/2014/05/19/firstday.html">
+      <span class="glyphicon glyphicon-chevron-left"></span> First day at 8th Light.
+    </a> 
+   
+   
+    <a class="btn btn-default btn-xs pull-right" href="/2014/05/22/clojure-ttt.html">
+      Clojure Tic Tac Toe<span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+   
+  </div>
+</div>
+
+
+
+
             </div>
           </div>
 
-          {% if page.title == site.name %}
-            <div class="row">
-              <a href="/work/"><span class="glyphicon glyphicon-briefcase"> work&nbsp</a></span>
-              <a href="/contact/"><span class="glyphicon glyphicon-envelope"> contact&nbsp</a></span>
-            </div>
-          {% elsif page.title == 'work.' %}
-            <div class="row">
-              <a href="/"><span class="glyphicon glyphicon-home"> home&nbsp</a></span>
-              <a href="/contact/"><span class="glyphicon glyphicon-envelope"> contact&nbsp</a></span>
-            </div>
-          {% elsif page.title == 'contact.' %}
-            <div class="row">
-              <a href="/"><span class="glyphicon glyphicon-home"> home&nbsp</a></span>
-              <a href="/work/"><span class="glyphicon glyphicon-briefcase"> work&nbsp</a></span>
-            </div>
-          {% else %}
+          
             <div class="col-md-10 col-xs-10 text-center">
               <a href="/"><span class="glyphicon glyphicon-home"> home&nbsp</a></span>
               <a href="/work/"><span class="glyphicon glyphicon-briefcase"> work&nbsp</a></span>
               <a href="/contact/"><span class="glyphicon glyphicon-envelope"> contact&nbsp</a></span>
             </div>
-          {% endif %}
+          
 
         </div>
     </body>

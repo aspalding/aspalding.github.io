@@ -14,7 +14,7 @@ def move(position, mark):
   game[position] = mark
 
 def redundant(position):
-  if not valid:
+  if not valid(position):
     out()
     move(*args)
   else:
