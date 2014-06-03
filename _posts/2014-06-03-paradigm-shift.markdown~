@@ -4,7 +4,7 @@ title:  "Paradigm shift?"
 date:   2014-06-3
 ---
 
-Before joining up with 8th Light I never expected I'd be learning a functional programming language. Although I'd heard a bit about Haskell and Scala. I don't think I'd met anybody who wrote functional code besides an older friend of a friend that's a bit of an Emacs fanatic and seemed quite fond of Elisp. 
+Before joining up with 8th Light I never expected I'd be learning a functional programming language. Although I'd heard a bit about Haskell and Scala. I don't think I'd met anybody besides an older friend of a friend that's a bit of an Emacs fanatic and seemed quite fond of Elisp. 
 
 This past week and a half I've been working on an Tic Tac Toe implementation in Clojure. The experience has been sort of jarring to say the least. TDD helped me get through the low hanging fruit of the program in a reasonable period of time, regardless of the code not being the most idiomatic Clojure code ever written. However, the intelligent AI and run-time loop put me into a bit of a bind. I still don't have any tests written for the run-time loop. Fortunately I think I've figured out how to test my intelligent algorithm. 
 
