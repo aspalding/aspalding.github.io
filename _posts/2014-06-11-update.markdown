@@ -10,4 +10,4 @@ While there are dozens of neat little snippets and idea's I picked up on that I 
 
 I've started my second iteration working on Ruby Tic Tac Toe. My mentor has extended the requirements of my program. Luckily I don't think any of these modifications should be incredibly hard. In accordance with Clean Code's suggestions I had already refactored my individual classes a couple times  and refactored the project as a whole just yesterday or the day before. 
 
-In addition, I'll be reading through `Principles, Patterns, and Practices` this week. 
+In addition, I'll be reading through `Principles, Patterns, and Practices` this week. One more thing! Finally got to help Mike with one of his Java questions yesterday. 
