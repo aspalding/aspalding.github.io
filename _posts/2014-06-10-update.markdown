@@ -10,6 +10,4 @@ This past weekend I finally decided to commit to using vim for the majority of m
 
 Anyway, relevant XKCD. 
 
-<div class="row text-center">
-<img src="http://imgs.xkcd.com/comics/real_programmers.png"></br><br>
-</div>
+<img src="http://imgs.xkcd.com/comics/real_programmers.png" class="img-responsive center-block">
