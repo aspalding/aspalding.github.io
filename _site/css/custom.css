@@ -4,12 +4,23 @@
  */
 
 body {
-  font-size: 18px !important;
+  font-size: 16px;
+}
+h3 {
+    font-size: 24px;
+}
+h2 {
+    font-size: 37px;
+}
+h1 {
+    font-size: 58px;
 }
 
 .container {
-  padding-top: 25px;
+  padding-top: 35px;
   padding-bottom: 35px;
+  padding-right:45px;
+  padding-left: 45px;
 }
 
 @font-face {

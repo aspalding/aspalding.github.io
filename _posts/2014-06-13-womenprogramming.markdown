@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Women and Computing"
-date: 2014-06-12
+date: 2014-06-13
 ---
 
 One of my closest friends that I met during my time at University was a woman who had recently started working towards a career shift. She was able to take advantage of a woman's outreach program and created a accessibility icon set for the Gnome Desktop Environment. The experience sparked her interest in creating software. She signed up for a Computer Science program and went on to participate in Google's Summer of Code as a programmer the next two subsequent summers. 
