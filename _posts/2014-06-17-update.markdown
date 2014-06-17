@@ -1,0 +1,13 @@
+---
+layout: post
+title: "Ruby Tic Tac Toe/Blog revamp!"
+date: 2014-06-17
+---
+
+Still working on my ruby tic tac toe. Minimax has been a challenge to implement in all three of the languages I've done this problem in so far! I think I tend to carry some baggage from my last implementation in the next version. Best practices in Java are not best practices in Clojure, likewise my Ruby program is taking a different structure than both my Java and Clojure programs. I've learned some gotcha's in both Clojure and Ruby that I wouldn't have known otherwise. Ultimately, this should be good for me. It definitely helps to implement a program from scratch in new languages you are trying to learn rather than jumping immediately into frameworks. I know a good chunk of people that have used rails, but probably haven't used Ruby in any other contexts. 
+
+Also! I've reworked the HTML and CSS for my blog a bit. I wanted to implement what Nick [discussed][n] during his keynote last week. Anyway, I like how it turned out and did some additional tweaks as well where I saw fit. 
+
+Currently reading through PPP. I'm feeling a bit guilty. I think I might violate some of these principals somewhat frequently. However, I'm trying to read this one pretty thoroughly so that I can identify these smells as I write them and refactor them out of my code earlier than later! 
+
+[n]: http://blog.8thlight.com/nick-meccia/2013/08/23/designing-irrationally.html
