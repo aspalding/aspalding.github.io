@@ -8,14 +8,15 @@ This weekend I wound up getting into a discussion with a friend of mine about pa
 
 These passwords are hard to remember, are they really more secure? After I have several of these passwords I tend to forget the ones I use less frequently. In accordance, most of my passwords are long strings of words. Ironically while working on a PHP project with classmates I set our administration account to have the password "anincrediblysecurepasswordonlyanadminwouldknow." We can use this as an example, its nine words long. A quick google search turns up 180,000 words that are still in use in the English language. 
 
-<img src="http://imgs.xkcd.com/comics/password_strength.png" class="img-responsive center-block">
-
 If we calculate the combinations possible with 180,000 choices while picking 9, we wind up with 546 Duadecillion (5 followed by 41 zeros) possible combinations. This is assuming that a dictionary is used. Factoring in network latency, this would take a very long time to brute force. 
 
-However, I'm not sure if password strength is really a good indicator of weather or not your online personas are protected. The most high profile accounts of passwords and other personal information being gathered for malicious use have been through data breaches. A quick visit to [wikipedia][db] provides some hard numbers. Sony had 77 million users accounts breached, target had upwards of 40 million, and adobe recently leaked 130 million users data! Getting 130 million account credentials through one (or even a series) of breaches saves a ton of cpu cycles compared to collecting them one by one! 
+However, I'm not sure if password strength is really a good indicator of weather or not your online personas are protected. The most high profile accounts of passwords and other personal information being gathered for malicious use have been through data breaches. A quick visit to [wikipedia][db] provides some hard numbers. Sony had 77 million users accounts breached, target had upwards of 40 million, and adobe recently leaked 130 million user's data! Getting 130 million account credentials through one (or even a series) of breaches saves a ton of cpu cycles compared to collecting them one by one! 
 
 So what can we do about this? As programmers we can keep up to date with best practices. Things such as keeping our database connections secure, being smart about what data is accessible through a REST framework, and keeping all the software that isn't built in house up to date. Realistically though even if you follow these basic guidelines, there is still the possibility that data can be stolen. 
 
-As an individual you should take advantage the of two factor authentication offered for Google services! Your email is the key to many of your online accounts through password resets. If you can keep your email protected, you should be a lot less vulnerable to other attacks. Anyway, if you have trouble remembering passwords I suggest using a string of words instead of a cryptic set of numbers, letters, and symbols. You're data is probably more likely to be stolen through data breaches rather than an individual brute force. 
+As an individual you should take advantage the of two factor authentication offered for Google services! Your email is the key to many of your online accounts through password resets. If you can keep your email protected, you should be a lot less vulnerable to other attacks. Anyway, if you have trouble remembering passwords I suggest using a string of words instead of a cryptic set of numbers, letters, and symbols. You're data is probably more likely to be stolen through data breaches than an individual brute force. 
+
+<img src="http://imgs.xkcd.com/comics/password_strength.png" class="img-responsive center-block">
+
 
 [db]: http://en.wikipedia.org/wiki/Data_breach#2013
