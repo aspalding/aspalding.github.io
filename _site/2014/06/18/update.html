@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Password Strength</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/custom.css">
+
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css" rel="stylesheet">
+        <link href="/assets/font/font-mfizz.css" rel="stylesheet">
+
+    </head>
+    <body>
+      <div class="container">
+
+          <div class="row">
+          <h1>
+            <a href="/">atj</a>
+            <small>I'm a gnu.</small>
+            <a href="/work/"><span class="fa fa-file-code-o pull-right"></a></span>
+            <a href="/contact/"><span class="fa fa-comment-o pull-right">&emsp;</a></span>
+          </h1>
+            
+          </div>
+
+          <div class="row">
+            <div class="col-md-12 col-xs-12">
+              <h2>Password Strength</h2>
+<p class="meta">18 Jun 2014</p>
+<p>This weekend I wound up getting into a discussion with a friend of mine about password complexity. I tend to use a long string of words, my friend seemed to believe that this wasn&#39;t a good method. According to most websites you should have a combination of lowercase, uppercase, symbols, and numbers to create a strong password. </p>
+
+<p>These passwords are hard to remember, are they really more secure? After I have several of these passwords I tend to forget the ones I use less frequently. In accordance, most of my passwords are long strings of words. Ironically while working on a PHP project with classmates I set our administration account to have the password &quot;anincrediblysecurepasswordonlyanadminwouldknow.&quot; We can use this as an example, its nine words long. A quick google search turns up 180,000 words that are still in use in the English language. </p>
+
+<p>If we calculate the combinations possible with 180,000 choices while picking 9, we wind up with 546 Duadecillion (5 followed by 41 zeros) possible combinations. This is assuming that a dictionary is used. Factoring in network latency, this would take a very long time to brute force. </p>
+
+<p>However, I&#39;m not sure if password strength is really a good indicator of weather or not your online personas are protected. The most high profile accounts of passwords and other personal information being gathered for malicious use have been through data breaches. A quick visit to <a href="http://en.wikipedia.org/wiki/Data_breach#2013">wikipedia</a> provides some hard numbers. Sony had 77 million users accounts breached, target had upwards of 40 million, and adobe recently leaked 130 million user&#39;s data! Getting 130 million account credentials through one (or even a series) of breaches saves a ton of cpu cycles compared to collecting them one by one! </p>
+
+<p>So what can we do about this? As programmers we can keep up to date with best practices. Things such as keeping our database connections secure, being smart about what data is accessible through a REST framework, and keeping all the software that isn&#39;t built in house up to date. Realistically though even if you follow these basic guidelines, there is still the possibility that data can be stolen. </p>
+
+<p>As an individual you should take advantage the of two factor authentication offered for Google services! Your email is the key to many of your online accounts through password resets. If you can keep your email protected, you should be a lot less vulnerable to other attacks. Anyway, if you have trouble remembering passwords I suggest using a string of words instead of a cryptic set of numbers, letters, and symbols. You&#39;re data is probably more likely to be stolen through data breaches than an individual brute force. </p>
+
+<p><img src="http://imgs.xkcd.com/comics/password_strength.png" class="img-responsive center-block"></p>
+
+
+
+<ul class="pager">
+
+  <li class="previous"><a href="/2014/06/17/update.html">&larr; Ruby Tic Tac Toe/Blog revamp!</a></li>
+
+
+  <li class="next"><a href="/2014/06/19/openclosed.html">Open Closed Principal &rarr;</a></li>
+
+</ul>
+
+            </div>
+          </div>
+        </div>
+        </body>
+  	<script>
+  	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  	  ga('create', 'UA-47463347-1', 'aspalding.github.io');
+  	  ga('send', 'pageview');
+
+  	</script>
+
+</html>
