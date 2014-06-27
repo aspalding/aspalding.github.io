@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>On to the Java server.</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/custom.css">
+
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css" rel="stylesheet">
+        <link href="/assets/font/font-mfizz.css" rel="stylesheet">
+
+    </head>
+    <body>
+      <div class="container">
+
+          <div class="row">
+          <h1>
+            <a href="/">atj</a>
+            <small>I'm a gnu.</small>
+            <a href="/work/"><span class="fa fa-file-code-o pull-right"></a></span>
+            <a href="/contact/"><span class="fa fa-comment-o pull-right">&emsp;</a></span>
+          </h1>
+            
+          </div>
+
+          <div class="row">
+            <div class="col-md-12 col-xs-12">
+              <h2>On to the Java server.</h2>
+<p class="meta">26 Jun 2014</p>
+<p>The next project in my apprenticeship program is the Java server. Interestingly enough, quite a few of my fellow apprentices are and have been working on this project in the recent past. So I should be able to have some solid discussion if I get stuck! Today I attempted to get started but took a step back and decided to do some more research. </p>
+
+<p>In the past, I tended to get my runtime loop early so I can start manually testing my program as soon as possible. For this project (and my last two tic tac toe&#39;s) I&#39;ve been practicing TDD as closely as possible. For TTT I knew what I needed to complete the program so the tests were not so difficult to come up with! My Java server could probably use a bit more planning beforehand since its a bit more complicated of a project. </p>
+
+<p>Anyway, heres a list of resources I&#39;ve been exploring. </p>
+
+<ul>
+<li>Clean Code and Principles Patterns and Practices
+
+<ul>
+<li>For planning my program with SOLID practices.</li>
+</ul></li>
+<li><a href="http://www.w3.org/Protocols/rfc2616/rfc2616.html">W3 Hypertext Transfer Protocol</a>
+
+<ul>
+<li>Thorough documentation of the HTTP/1.1 specification.<br></li>
+</ul></li>
+<li><a href="http://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml">HTTP Status Code Reference</a>
+
+<ul>
+<li>Quick reference for HTTP status codes.</li>
+<li>Should be helpful. I know a handful, but there are dozens! </li>
+</ul></li>
+<li><a href="http://www.jmarshall.com/easy/http/">HTTP Made Really Easy</a>
+
+<ul>
+<li>Another reference of the HTTP spec. </li>
+<li>Reads a bit more easily that the formal W3 spec. </li>
+</ul></li>
+<li><a href="http://docs.oracle.com/javase/tutorial/networking/sockets/definition.html">What Is a Socket?</a>
+
+<ul>
+<li>Documentation by Oracle/Sun (grr) about sockets.</li>
+<li>Provides some Java specific information about sockets.</li>
+</ul></li>
+<li>Various Java Classes
+
+<ul>
+<li>java.net: <a href="http://docs.oracle.com/javase/8/docs/api/java/net/Socket.html">Socket</a> and <a href="http://docs.oracle.com/javase/8/docs/api/java/net/ServerSocket.html">SocketServer</a>.</li>
+<li>java.lang: <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Thread.html">Thread</a> and <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/StringBuffer.html">String Buffer</a>.</li>
+<li>java.io: <a href="http://docs.oracle.com/javase/8/docs/api/java/io/InputStreamReader.html">InputStreamReader</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/io/OutputStreamWriter.html">OutputStreamWriter</a>, and <a href="http://docs.oracle.com/javase/8/docs/api/java/io/FileReader.html">FileReader</a>.</li>
+<li>java.util: <a href="http://docs.oracle.com/javase/8/docs/api/java/util/StringTokenizer.html">String Tokenizer</a>.</li>
+</ul></li>
+</ul>
+
+<p>I may or may not use all these classes but it&#39;ll be nice to know what to look for when I do need them. I&#39;m hoping this project provides deeper knowledge of how the web works. Now I have to figure out how I should put the pieces together and what patterns I&#39;ll be using for the different pieces of the server! </p>
+
+
+
+<ul class="pager">
+
+  <li class="previous"><a href="/2014/06/25/rspec.html">&larr; RSpec Woes and Solutions!</a></li>
+
+
+</ul>
+
+            </div>
+          </div>
+        </div>
+        </body>
+  	<script>
+  	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  	  ga('create', 'UA-47463347-1', 'aspalding.github.io');
+  	  ga('send', 'pageview');
+
+  	</script>
+
+</html>
