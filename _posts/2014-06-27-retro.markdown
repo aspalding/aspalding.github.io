@@ -1,0 +1,15 @@
+---
+layout: post
+title: "Retrospective."
+date: 2014-06-27
+---
+
+Defn. Looking back on or dealing with past events or situations.
+
+This week I had my first retrospective. I had not heard of a retrospective until my mentor mentioned that we'd be having one after my IPM (That I knew about). Basically one of our co workers joined us after our weekly iterative planning meeting. He facilitated a discussion about how my apprenticeship was going, how my mentor is doing, and how I am doing.
+
+Me and my mentor both agreed that we needed some additional communication. Myles didn't come down too hard on me and the meeting was pretty positive. We got to discuss some things I'm interested in doing before the end of my apprenticeship.
+
+The formalized meeting also made me reflect a little personally as well. The experience so far has been a bit humbling. I can't wait to get started on bigger things, but I understand that its going to take some more preparation. My various versions of tic tac toe got me familiar with TDD. Now I've got a larger project where I'll try to implement a clean object oriented design and try to conform to the SOLID principles. 
+
+I'm appreciating my time here at 8th Light and I'm glad to have the opportunity to keep learning! 
