@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Java Updates.</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/custom.css">
+
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css" rel="stylesheet">
+        <link href="/assets/font/font-mfizz.css" rel="stylesheet">
+
+    </head>
+    <body>
+      <div class="container">
+
+          <div class="row">
+          <h1>
+            <a href="/">atj</a>
+            <small>I'm a gnu.</small>
+            <a href="/work/"><span class="fa fa-file-code-o pull-right"></a></span>
+            <a href="/contact/"><span class="fa fa-comment-o pull-right">&emsp;</a></span>
+          </h1>
+            
+          </div>
+
+          <div class="row">
+            <div class="col-md-12 col-xs-12">
+              <h2>Java Updates.</h2>
+<p class="meta">01 Jul 2014</p>
+<p>Since I&#39;ve been working on my Java server I&#39;ve noticed some additions to Java that I hadn&#39;t previously been using! I started programming in Java around 2008, so new things have actually been introduced to Java since my initial experiences with the language. </p>
+
+<p>Initially I figured I&#39;d need to use InputStreamWriter, a while loop, and build the character codes into a String to translate my files into HTML. Not that case anymore! Since Java 7, there are a few new utility classes for dealing with files and paths. The ones I&#39;ve utilized so far are <a href="http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html">Files</a>, <a href="http://docs.oracle.com/javase/8/docs/api/java/nio/file/Paths.html">Paths</a>, and <a href="http://docs.oracle.com/javase/8/docs/api/java/io/File.html">File</a>.</p>
+
+<p>For example:</p>
+
+<div class="highlight"><pre><code class="java"><span class="c1">//Old version (more or less)</span>
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">fileToString</span><span class="o">(</span><span class="n">path</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+        <span class="n">InputStream</span> <span class="n">inputStream</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileInputStream</span><span class="o">(</span><span class="n">path</span><span class="o">);</span>
+        <span class="n">Reader</span> <span class="n">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="n">InputStreamReader</span><span class="o">(</span><span class="n">inputStream</span><span class="o">,</span> <span class="s">&quot;UTF-8&quot;</span><span class="o">);</span>
+
+        <span class="kt">int</span> <span class="n">data</span><span class="o">;</span>
+        <span class="k">do</span> <span class="o">{</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="na">read</span><span class="o">();</span>
+            <span class="kt">char</span> <span class="n">theChar</span> <span class="o">=</span> <span class="o">(</span><span class="kt">char</span><span class="o">)</span> <span class="n">data</span><span class="o">;</span>
+        <span class="o">}</span> <span class="k">while</span><span class="o">(</span><span class="n">data</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="o">)</span>
+        <span class="n">reader</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+        <span class="k">return</span> <span class="n">reader</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+<span class="o">}</span>
+
+<span class="c1">//Using Files and Paths</span>
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">fileToString</span><span class="o">(</span><span class="n">path</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+    <span class="kt">byte</span><span class="o">[]</span> <span class="n">encoded</span> <span class="o">=</span> <span class="n">Files</span><span class="o">.</span><span class="na">readAllBytes</span><span class="o">(</span><span class="n">Paths</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">path</span><span class="o">));</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nf">String</span><span class="o">(</span><span class="n">encoded</span><span class="o">,</span> <span class="n">StandardCharsets</span><span class="o">.</span><span class="na">UTF_8</span><span class="o">);</span>
+<span class="o">}</span></code></pre></div>
+
+<p>Thats a lot more concise and convenient! </p>
+
+<p>In addition I&#39;ve found that Java functions (including constructors) can now take optional parameters. The notation is <code>String... vargs</code>. Unfortunately this is not as useful as I&#39;d hoped. Rather than using this new feature I decided to keep using method overloading. Introducing optional parameters requires testing whether or not that variable was passed into the method. Method overloading feels more clear to me, although that may simply be out of habit and my familiarity with dealing with optional parameters in Java. </p>
+
+
+
+<ul class="pager">
+
+  <li class="previous"><a href="/2014/06/27/retro.html">&larr; Retrospective.</a></li>
+
+
+</ul>
+
+            </div>
+          </div>
+        </div>
+        </body>
+  	<script>
+  	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  	  ga('create', 'UA-47463347-1', 'aspalding.github.io');
+  	  ga('send', 'pageview');
+
+  	</script>
+
+</html>
