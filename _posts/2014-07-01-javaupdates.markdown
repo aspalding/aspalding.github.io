@@ -1,41 +1,11 @@
 ---
 layout: post
-title: "Java Updates."
+title: "Professionalism."
 date: 2014-07-01
 ---
 
-Since I've been working on my Java server I've noticed some additions to Java that I hadn't previously been using! I started programming in Java around 2008, so new things have actually been introduced to Java since my initial experiences with the language. 
+As my next reading assignment, I'll be reading through The Clean Coder. This text is a lot lighter than the books I've read previously while at 8th Light. The book outlines how to act and be perceived as an professional while working on software. Martin has used the failed Challenger space shuttle launch as an analogy to draw readers into the book. He elaborates that the engineers on the team insisted the launch was not ready, but upper management insisted resulting in a catastrophic failure. 
 
-Initially I figured I'd need to use InputStreamWriter, a while loop, and build the character codes into a String to translate my files into HTML. Not that case anymore! Since Java 7, there are a few new utility classes for dealing with files and paths. The ones I've utilized so far are [Files][fs], [Paths][p], and [File][f].
+The first couple chapters of the book thus far have discussed knowing when to agree to terms and when not to agree to terms. Being direct about what is possible and what is not possible. By agreeing to an unrealistic deadline you are compromising your honestly and integrity as a professional. 
 
-For example:
-
-{% highlight Java %}
-//Old version (more or less)
-public String fileToString(path) throws Exception {
-		InputStream inputStream = new FileInputStream(path);
-		Reader reader = new InputStreamReader(inputStream, "UTF-8");
-
-		int data;
-		do {
-				data = reader.read();
-		    char theChar = (char) data;
-		} while(data != -1)
-		reader.close();
-		return reader.toString();
-}
-
-//Using Files and Paths
-public String fileToString(path) throws Exception {
-    byte[] encoded = Files.readAllBytes(Paths.get(path));
-    return new String(encoded, StandardCharsets.UTF_8);
-}
-{% endhighlight %}
-
-Thats a lot more concise and convenient! 
-
-In addition I've found that Java functions (including constructors) can now take optional parameters. The notation is `String... vargs`. Unfortunately this is not as useful as I'd hoped. Rather than using this new feature I decided to keep using method overloading. Introducing optional parameters requires testing whether or not that variable was passed into the method. Method overloading feels more clear to me, although that may simply be out of habit and my familiarity with dealing with optional parameters in Java. 
-
-[f]: http://docs.oracle.com/javase/8/docs/api/java/io/File.html
-[fs]: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Files.html
-[p]: http://docs.oracle.com/javase/8/docs/api/java/nio/file/Paths.html
+Its hard not to agree. Most of us have heard horror stories and Martin provides a few solid examples of his own. Overworking results in burn out. You should be spending time working on projects you are personally interested in and investing in your career rather than fueling every drop of your motivation and ability into meeting an unrealistic deadline. While there are probably circumstances where this is not always true and a project should be given a bit of overtime, establishing a cycle of unrealistic deadlines and expectations convinces your employer they should expect you to take on this nature of work. 
