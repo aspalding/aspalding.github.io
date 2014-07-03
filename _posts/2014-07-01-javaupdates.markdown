@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Professionalism."
-date: 2014-07-01
+date: 2014-07-03
 ---
 
 As my next reading assignment, I'll be reading through The Clean Coder. This text is a lot lighter than the books I've read previously while at 8th Light. The book outlines how to act and be perceived as an professional while working on software. Martin has used the failed Challenger space shuttle launch as an analogy to draw readers into the book. He elaborates that the engineers on the team insisted the launch was not ready, but upper management insisted resulting in a catastrophic failure. 
