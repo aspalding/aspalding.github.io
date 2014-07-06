@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Permutations and Combinations</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/custom.css">
+
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css" rel="stylesheet">
+        <link href="/assets/font/font-mfizz.css" rel="stylesheet">
+
+    </head>
+    <body>
+      <div class="container">
+
+          <div class="row">
+          <h1>
+            <a href="/">atj</a>
+            <small>I'm a gnu.</small>
+            <a href="/work/"><span class="fa fa-file-code-o pull-right"></a></span>
+            <a href="/contact/"><span class="fa fa-comment-o pull-right">&emsp;</a></span>
+          </h1>
+            
+          </div>
+
+          <div class="row">
+            <div class="col-md-12 col-xs-12">
+              <h2>Permutations and Combinations</h2>
+<p class="meta">06 Jul 2014</p>
+<p>The past Thursday one of our student apprentices was looking for a cleaner solution to generating all possible sets of a master mind game. Immediately combinations and permutations came to mind. Python provided functions to generate these sets and I quickly decided that we should search ruby docs to see if that was the case for Ruby. Of course, ruby provides four functions that operate on arrays; <code>combination(n)</code>, <code>permutation(n)</code>, <code>repeated_combination(n)</code>, and <code>repeated_permutation(n)</code>.</p>
+
+<p>Both combinations and permutations deal with a set of numbers, the number of symbols in that set and the size of the sets to be chosen. To vocally describe the action we might say &quot;Out of this many, pick this many.&quot; A <a href="http://en.wikipedia.org/wiki/Combination">combination</a> is a list of all possible sets in which the order of the sets is not important eg [1, 2, 3] and [3, 2, 1] are considered equivilent. On the otherhand a <a href="http://en.wikipedia.org/wiki/Permutations">permutation</a> considers those two sets unique. <a href="http://math.stackexchange.com/questions/128048/what-is-the-correct-terminology-for-permutation-combination-formulae-that-allo">Read more</a>.</p>
+
+<p>We knew that we needed 1296 sets to cover each possibility of the game. In accorance, we fired up the irb, made an array of size six, and tested the combination and permutation functions with the argument four along with count. Neither solution worked. However, we examined the output and knew what was missing from the solution. At this point I got back to the task I working on. Within five minutes Laura had found two additional functions repeated<em>combination and repeated</em>permutation. The latter function turned out to result in 1296 sets. </p>
+
+<p>Anyway, a single line function call on an array was able to replace four nested for loops. Dynamic, high level languages provide a lot out of the box! The interpretter allows you to explore what is offered by a language quickly. It is good practice to rely on what is already provided by the language. In addition, using constructs provided by the language are most likely more performant than anything you could construct in the language itself as they are implemented in C! </p>
+
+
+
+<ul class="pager">
+
+  <li class="previous"><a href="/2014/07/03/javaupdates.html">&larr; Professionalism.</a></li>
+
+
+</ul>
+
+            </div>
+          </div>
+        </div>
+        </body>
+  	<script>
+  	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  	  ga('create', 'UA-47463347-1', 'aspalding.github.io');
+  	  ga('send', 'pageview');
+
+  	</script>
+
+</html>
