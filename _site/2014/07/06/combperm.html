@@ -36,11 +36,11 @@
 <p class="meta">06 Jul 2014</p>
 <p>The past Thursday one of our student apprentices was looking for a cleaner solution to generating all possible sets of a master mind game. Immediately combinations and permutations came to mind. Python provided functions to generate these sets and I quickly decided that we should search ruby docs to see if that was the case for Ruby. Of course, ruby provides four functions that operate on arrays; <code>combination(n)</code>, <code>permutation(n)</code>, <code>repeated_combination(n)</code>, and <code>repeated_permutation(n)</code>.</p>
 
-<p>Both combinations and permutations deal with a set of numbers, the number of symbols in that set and the size of the sets to be chosen. To vocally describe the action we might say &quot;Out of this many, pick this many.&quot; A <a href="http://en.wikipedia.org/wiki/Combination">combination</a> is a list of all possible sets in which the order of the sets is not important eg [1, 2, 3] and [3, 2, 1] are considered equivilent. On the otherhand a <a href="http://en.wikipedia.org/wiki/Permutations">permutation</a> considers those two sets unique. <a href="http://math.stackexchange.com/questions/128048/what-is-the-correct-terminology-for-permutation-combination-formulae-that-allo">Read more</a>.</p>
+<p>Both combinations and permutations deal with a set of numbers, the number of symbols in that set and the size of the sets to be chosen. To vocally describe the action we might say &quot;Out of this many, pick this many.&quot; A <a href="http://en.wikipedia.org/wiki/Combination">combination</a> is a list of all possible sets in which the order of the sets is not important eg [1, 2, 3] and [3, 2, 1] are considered equivalent. On the other hand a <a href="http://en.wikipedia.org/wiki/Permutations">permutation</a> considers those two sets unique. <a href="http://math.stackexchange.com/questions/128048/what-is-the-correct-terminology-for-permutation-combination-formulae-that-allo">Read more</a>.</p>
 
-<p>We knew that we needed 1296 sets to cover each possibility of the game. In accorance, we fired up the irb, made an array of size six, and tested the combination and permutation functions with the argument four along with count. Neither solution worked. However, we examined the output and knew what was missing from the solution. At this point I got back to the task I working on. Within five minutes Laura had found two additional functions repeated<em>combination and repeated</em>permutation. The latter function turned out to result in 1296 sets. </p>
+<p>We knew that we needed 1296 sets to cover each possibility of the game. In accordance, we fired up the irb, made an array of size six, and tested the combination and permutation functions with the argument four along with count. Neither solution worked. However, we examined the output and knew what was missing from the solution. At this point I got back to the task I working on. Within five minutes Laura had found two additional functions repeated<em>combination and repeated</em>permutation. The latter function turned out to result in 1296 sets. </p>
 
-<p>Anyway, a single line function call on an array was able to replace four nested for loops. Dynamic, high level languages provide a lot out of the box! The interpretter allows you to explore what is offered by a language quickly. It is good practice to rely on what is already provided by the language. In addition, using constructs provided by the language are most likely more performant than anything you could construct in the language itself as they are implemented in C! </p>
+<p>Anyway, a single line function call on an array was able to replace four nested for loops. Dynamic, high level languages provide a lot out of the box! The interpreter allows you to explore what is offered by a language quickly. It is good practice to rely on what is already provided by the language. In addition, using constructs provided by the language are most likely more performant than anything you could construct in the language itself as they are implemented in C! </p>
 
 
 
@@ -48,6 +48,8 @@
 
   <li class="previous"><a href="/2014/07/03/javaupdates.html">&larr; Professionalism.</a></li>
 
+
+  <li class="next"><a href="/2014/07/08/thezone.html">Coding in the zone? &rarr;</a></li>
 
 </ul>
 
