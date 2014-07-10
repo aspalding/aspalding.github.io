@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Testing!</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/custom.css">
+
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css" rel="stylesheet">
+        <link href="/assets/font/font-mfizz.css" rel="stylesheet">
+
+    </head>
+    <body>
+      <div class="container">
+
+          <div class="row">
+          <h1>
+            <a href="/">atj</a>
+            <small>I'm a gnu.</small>
+            <a href="/work/"><span class="fa fa-file-code-o pull-right"></a></span>
+            <a href="/contact/"><span class="fa fa-comment-o pull-right">&emsp;</a></span>
+          </h1>
+            
+          </div>
+
+          <div class="row">
+            <div class="col-md-12 col-xs-12">
+              <h2>Testing!</h2>
+<p class="meta">10 Jul 2014</p>
+<p>One of my tasks for the next week or two has been to review one of the videos from Uncle Bob&#39;s Clean Coder series and create a series of questions on the topics talked about. Luckily enough, the video I was assigned provided some useful advice for testing my current project! </p>
+
+<p>Testing classes and functions that depend on certain files or directories was really tricky. Initially I attempted to create a new class as well as an interface to mock the objects and pretend that the imaginary files did exist. However, this became burdensome as I needed to test additional file functionality. Uncle Bob suggests using &quot;Test-Specific Subclasses&quot; to test this sort of tricky behavior. Using this testing pattern I was able to only override the functions one at a time as I needed them for specific tests. For example:</p>
+
+<div class="highlight"><pre><code class="java"><span class="kd">public</span> <span class="kt">byte</span><span class="o">[]</span> <span class="nf">responseBody</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+    <span class="k">if</span><span class="o">(</span><span class="n">file</span><span class="o">.</span><span class="na">isFile</span><span class="o">())</span>
+        <span class="c1">//do something</span>
+    <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">file</span><span class="o">.</span><span class="na">isDirectory</span><span class="o">())</span>
+        <span class="c1">//do something else</span>
+    <span class="k">else</span>
+        <span class="c1">//404</span>
+<span class="o">}</span></code></pre></div>
+
+<p>The File object, file, is passed through the constructor (this is known as dependency injection). To test each conditional, each case requires a slightly different subclass. My testing code is listed below:</p>
+
+<div class="highlight"><pre><code class="java"><span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">testValidFilePathResponseString</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+    <span class="n">File</span> <span class="n">fake</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&quot;&quot;</span><span class="o">){</span>
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isFile</span><span class="o">(){</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">};</span>
+    <span class="n">Response</span> <span class="n">resp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Response</span><span class="o">(</span><span class="n">fake</span><span class="o">);</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="s">&quot;HTTP/1.1 200 OK\nContent-Type: null\n\n&quot;</span><span class="o">,</span> <span class="n">resp</span><span class="o">.</span><span class="na">responseHeader</span><span class="o">(</span><span class="mi">200</span><span class="o">,</span> <span class="s">&quot;&quot;</span><span class="o">));</span>
+<span class="o">}</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">testValidDirectoryPathResponseString</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+    <span class="n">File</span> <span class="n">fake</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&quot;&quot;</span><span class="o">){</span>
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isFile</span><span class="o">(){</span>
+            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isDirectory</span><span class="o">(){</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">};</span>
+    <span class="n">Response</span> <span class="n">resp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Response</span><span class="o">(</span><span class="n">fake</span><span class="o">);</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="s">&quot;HTTP/1.1 200 OK\nContent-Type: text/html\n\n&quot;</span><span class="o">,</span> <span class="n">resp</span><span class="o">.</span><span class="na">responseHeader</span><span class="o">(</span><span class="mi">200</span><span class="o">,</span> <span class="s">&quot;&quot;</span><span class="o">));</span>
+<span class="o">}</span>
+
+<span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">testInvalidPathResponseString</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+    <span class="n">File</span> <span class="n">fake</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&quot;&quot;</span><span class="o">){</span>
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isFile</span><span class="o">(){</span>
+            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isDirectory</span><span class="o">(){</span>
+            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">};</span>
+    <span class="n">Response</span> <span class="n">resp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Response</span><span class="o">(</span><span class="n">fake</span><span class="o">);</span>
+    <span class="n">assertEquals</span><span class="o">(</span><span class="s">&quot;HTTP/1.1 404 Not Found\n\n&quot;</span><span class="o">,</span> <span class="n">resp</span><span class="o">.</span><span class="na">responseHeader</span><span class="o">(</span><span class="mi">200</span><span class="o">,</span> <span class="s">&quot;&quot;</span><span class="o">));</span>
+<span class="o">}</span></code></pre></div>
+
+<p>In my opinion this solution provides additional clarity to my tests opposed to my initial method of testing this function/class, it is obvious which conditional is being tested because the boolean the conditional depends on is established just above where the function is called! In addition it is less complex to write the test as you do not have to shift your focus back and forth between your separate mock class.  </p>
+
+
+
+<ul class="pager">
+
+  <li class="previous"><a href="/2014/07/09/update.html">&larr; Clean Coder</a></li>
+
+
+</ul>
+
+            </div>
+          </div>
+        </div>
+        </body>
+  	<script>
+  	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  	  ga('create', 'UA-47463347-1', 'aspalding.github.io');
+  	  ga('send', 'pageview');
+
+  	</script>
+
+</html>
