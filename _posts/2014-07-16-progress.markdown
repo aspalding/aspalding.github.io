@@ -1,0 +1,11 @@
+---
+layout: post
+title: "Progress and updates!"
+date: 2014-07-15
+---
+
+This morning I was finally able to process an entire request rather than the simply the first line. It turns out that looping through each byte and casting them as a char is an expensive operation. I debated trying to use Java's NIO non-blocking IO classes, but was able to come to a more simple solution this morning. 
+
+I've preallocated a byte array, read the input into that array, then cast it as a string. I've got a few more refactors to do today and hopefully I'll get to get my POST requests up in running in the next day or two. 
+
+This morning I arrived to the clear home screen upon trying to access the internet. I was able to hard wire my computer and get a connection temporarily. However, we decided to go a little further. Zach O tried each hub individually to see what was going on with each of the hubs individually. We removed the hub throwing the Clear screen and now it works perfectly! The network is a lot faster than it was before and seems to handle our network traffic a lot better, I haven't even noticed latency! Thanks Conor and Nathan! 
