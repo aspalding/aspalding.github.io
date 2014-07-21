@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Progress and updates!"
-date: 2014-07-15
+date: 2014-07-16
 ---
 
 This morning I was finally able to process an entire request rather than the simply the first line. It turns out that looping through each byte and casting them as a char is an expensive operation. I debated trying to use Java's NIO non-blocking IO classes, but was able to come to a more simple solution this morning. 
