@@ -1,0 +1,11 @@
+---
+layout: post
+title: "Update!"
+date: 2014-07-22
+---
+
+Piecing together a large piece of software can be a challenging task. One of the benefits of TDD is that you break your code into smaller chunks to make them easier to test individually. 
+
+However, while starting a new project I tend to do quite a bit of research. This afternoon I've been trying to get a solid plan for refactoring a large chunk of my program. While I could keep adding things, there are some elements of the program that are beginning to worry me. As a result I've spent some time researching things I think would help but have yet to materialize much. After doing quite a bit of research I'm still not sure how I'd like to refactor my program.
+
+Spending the entire work day on a specific project is a little new to me and I need to get better at transitioning from one task to another. Anyway hopefully I can knock out a chunk of this refactor this afternoon! 
