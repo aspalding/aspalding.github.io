@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Progress and updates!</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/custom.css">
+
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css" rel="stylesheet">
+        <link href="/assets/font/font-mfizz.css" rel="stylesheet">
+
+    </head>
+    <body>
+      <div class="container">
+
+          <div class="row">
+          <h1>
+            <a href="/">atj</a>
+            <small>I'm a gnu.</small>
+            <a href="/work/"><span class="fa fa-file-code-o pull-right"></a></span>
+            <a href="/contact/"><span class="fa fa-comment-o pull-right">&emsp;</a></span>
+          </h1>
+            
+          </div>
+
+          <div class="row">
+            <div class="col-md-12 col-xs-12">
+              <h2>Progress and updates!</h2>
+<p class="meta">16 Jul 2014</p>
+<p>This morning I was finally able to process an entire request rather than the simply the first line. It turns out that looping through each byte and casting them as a char is an expensive operation. I debated trying to use Java&#39;s NIO non-blocking IO classes, but was able to come to a more simple solution this morning. </p>
+
+<p>I&#39;ve preallocated a byte array, read the input into that array, then cast it as a string. I&#39;ve got a few more refactors to do today and hopefully I&#39;ll get to get my POST requests up in running in the next day or two. </p>
+
+<p>This morning I arrived to the clear home screen upon trying to access the internet. I was able to hard wire my computer and get a connection temporarily. However, we decided to go a little further. Zach O tried each hub individually to see what was going on with each of the hubs individually. We removed the hub throwing the Clear screen and now it works perfectly! The network is a lot faster than it was before and seems to handle our network traffic a lot better, I haven&#39;t even noticed latency! Thanks Conor and Nathan! </p>
+
+
+
+<ul class="pager">
+
+  <li class="previous"><a href="/2014/07/15/update.html">&larr; TDD and static typed languages?</a></li>
+
+
+  <li class="next"><a href="/2014/07/21/newoffice.html">Thoughts about our new office. &rarr;</a></li>
+
+</ul>
+
+            </div>
+          </div>
+        </div>
+        </body>
+  	<script>
+  	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  	  ga('create', 'UA-47463347-1', 'aspalding.github.io');
+  	  ga('send', 'pageview');
+
+  	</script>
+
+</html>
