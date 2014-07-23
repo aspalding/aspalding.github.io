@@ -9,6 +9,7 @@ At the moment most of my work so far at 8th Light has been independent toy progr
 Anyway, since I've been trying to make a post everyday, the front page of my blog was getting incredibly long. In accordance I decided to add pagination. Really just a couple lines of code, the documentation provided a solid start. Heres what I wound up:
 
 {% highlight Django %}
+{% raw %}
 <ul class="pager">
   {% if paginator.previous_page %}
 		<li class="previous"><a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Previous</a></li>
@@ -18,6 +19,7 @@ Anyway, since I've been trying to make a post everyday, the front page of my blo
 		<li class="next"><a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &rarr;</a></li>
   {% endif %}
 </ul>
+{% endraw %}
 {% endhighlight %}
 
 I like working in the context of a framework. A well chosen framework provides a solid foundation and procedure for getting something done. It seems as if a lot of our work is done through the web and I can't wait to get back into it and working on a team! 
