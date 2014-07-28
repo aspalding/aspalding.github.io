@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>SSH over the internet!</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/custom.css">
+
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css" rel="stylesheet">
+        <link href="/assets/font/font-mfizz.css" rel="stylesheet">
+
+    </head>
+    <body>
+      <div class="container">
+
+          <div class="row">
+          <h1>
+            <a href="/">atj</a>
+            <small>I'm a gnu.</small>
+            <a href="/work/"><span class="fa fa-file-code-o pull-right"></a></span>
+            <a href="/contact/"><span class="fa fa-comment-o pull-right">&emsp;</a></span>
+          </h1>
+            
+          </div>
+
+          <div class="row">
+            <div class="col-md-12 col-xs-12">
+              <h2>SSH over the internet!</h2>
+<p class="meta">27 Jul 2014</p>
+<p>One of my hobbies is Linux. My home server is a Raspberry Pi running <a href="https://www.debian.org/">Debian</a>. It currently hosts a local git server over Nginx and SSH. This past week I decided to secure my SSH connection so I could open a port to the external internet. In addition to the Raspberry Pi, I have a router that has an open source linux based firmware. The router handles a variety of Dynamic DNS services. </p>
+
+<p>As a security habit, I haven&#39;t had a public facing server in my home for quite some time now. SSH servers are a frequent target for people looking to expoloit insecure computers. It is advised that you do not allow password logins or the root user to login over SSH. However, I still desired to have those settings while on my local network. In accordance, I setup my <code>sshd_config</code> to use a match rule. That rule is as follows:</p>
+
+<div class="highlight"><pre><code class="irc">Match Address *,!192.168.1.0/24
+  PasswordAuthentication no 
+  PermitRootLogin no
+  MaxAuthTries 2</code></pre></div>
+
+<p>In plain english, the rule says that if your address lies outside my local subnet (192.168.1.X), then you cannot simply login with a password, logging in as root is not allowed, and you only get two shots. With password authentification disabled a public key/private key is required to log on. To generate these I utilized <code>ssh-keygen</code> and <code>ssh-copy-id</code>.</p>
+
+<p>Another hurdle when opening up to the rest of the internet is that most of our internet providers do not give us a static public ip address. To deal with this I&#39;ve signed up for <a href="http://freedns.afraid.org/">freedns</a>. The firmware I have installed on my router lets it talk directly to this service. When my ip address changes, my router tells the DDNS provider. When everything is ready to go, check out your port configuration, point it to the static ip address you&#39;ve given your server, and enable TCP port 22. </p>
+
+<p>Checking the tail log you can see failed attempts. The behavior below seems to be reflect a script trying common user name possibilities (a postgres user for example may be a common user name as many people rely on the postgres database).</p>
+
+<div class="highlight"><pre><code class="irc">$ tail /var/log/auth.log -n 100
+
+Jul 26 23:14:25 piserver sshd[2053]: Invalid user zabbix from 210.211.99.244
+Jul 26 23:14:25 piserver sshd[2053]: input_userauth_request: invalid user zabbix [preauth]
+Jul 26 23:14:25 piserver sshd[2053]: Received disconnect from 210.211.99.244: 11: Bye Bye [preauth]
+Jul 26 23:14:32 piserver sshd[2058]: Invalid user postgres from 210.211.99.244
+Jul 26 23:14:32 piserver sshd[2058]: input_userauth_request: invalid user postgres [preauth]
+Jul 26 23:14:33 piserver sshd[2058]: Received disconnect from 210.211.99.244: 11: Bye Bye [preauth]
+
+$ cat /var/log/auth.log | grep &quot;Accepted&quot;
+
+Jul 24 04:17:09 piserver sshd[30576]: Accepted password for pi from 192.168.1.113 port 63580 ssh2
+Jul 24 14:18:37 piserver sshd[31235]: Accepted publickey for andrew-8thlight from x.x.x.x port 49825 ssh2
+Jul 25 20:58:29 piserver sshd[688]: Accepted publickey for andrew-8thlight from x.x.x.x port 5541 ssh2</code></pre></div>
+
+<p>Listed above are sucessful logins. The ip addresses that have beened crossed out reflect my work addresses. You can see that passwords are still being accepted on my local subnet and both successful logins from an external ip have a public key. I&#39;ll be keeping an eye on these logs for a couple weeks, but my server should be sheltered from the majority of attacks! </p>
+
+
+
+<ul class="pager">
+
+  <li class="previous"><a href="/2014/07/23/jekyllnstuff.html">&larr; Jekyll and working with the web.</a></li>
+
+
+</ul>
+
+            </div>
+          </div>
+        </div>
+        </body>
+  	<script>
+  	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  	  ga('create', 'UA-47463347-1', 'aspalding.github.io');
+  	  ga('send', 'pageview');
+
+  	</script>
+
+</html>

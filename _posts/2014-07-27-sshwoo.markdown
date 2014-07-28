@@ -1,0 +1,44 @@
+---
+layout: post
+title: "SSH over the internet!"
+date: 2014-07-27
+---
+
+One of my hobbies is Linux. My home server is a Raspberry Pi running [Debian][debian]. It currently hosts a local git server over Nginx and SSH. This past week I decided to secure my SSH connection so I could open a port to the external internet. In addition to the Raspberry Pi, I have a router that has an open source linux based firmware. The router handles a variety of Dynamic DNS services. 
+
+As a security habit, I haven't had a public facing server in my home for quite some time now. SSH servers are a frequent target for people looking to expoloit insecure computers. It is advised that you do not allow password logins or the root user to login over SSH. However, I still desired to have those settings while on my local network. In accordance, I setup my `sshd_config` to use a match rule. That rule is as follows:
+
+{% highlight irc %}
+Match Address *,!192.168.1.0/24
+  PasswordAuthentication no 
+  PermitRootLogin no
+  MaxAuthTries 2
+{% endhighlight%}
+
+In plain english, the rule says that if your address lies outside my local subnet (192.168.1.X), then you cannot simply login with a password, logging in as root is not allowed, and you only get two shots. With password authentification disabled a public key/private key is required to log on. To generate these I utilized `ssh-keygen` and `ssh-copy-id`.
+
+Another hurdle when opening up to the rest of the internet is that most of our internet providers do not give us a static public ip address. To deal with this I've signed up for [freedns][fdns]. The firmware I have installed on my router lets it talk directly to this service. When my ip address changes, my router tells the DDNS provider. When everything is ready to go, check out your port configuration, point it to the static ip address you've given your server, and enable TCP port 22. 
+
+Checking the tail log you can see failed attempts. The behavior below seems to be reflect a script trying common user name possibilities (a postgres user for example may be a common user name as many people rely on the postgres database).
+
+{% highlight irc %}
+$ tail /var/log/auth.log -n 100
+
+Jul 26 23:14:25 piserver sshd[2053]: Invalid user zabbix from 210.211.99.244
+Jul 26 23:14:25 piserver sshd[2053]: input_userauth_request: invalid user zabbix [preauth]
+Jul 26 23:14:25 piserver sshd[2053]: Received disconnect from 210.211.99.244: 11: Bye Bye [preauth]
+Jul 26 23:14:32 piserver sshd[2058]: Invalid user postgres from 210.211.99.244
+Jul 26 23:14:32 piserver sshd[2058]: input_userauth_request: invalid user postgres [preauth]
+Jul 26 23:14:33 piserver sshd[2058]: Received disconnect from 210.211.99.244: 11: Bye Bye [preauth]
+
+$ cat /var/log/auth.log | grep "Accepted"
+
+Jul 24 04:17:09 piserver sshd[30576]: Accepted password for pi from 192.168.1.113 port 63580 ssh2
+Jul 24 14:18:37 piserver sshd[31235]: Accepted publickey for andrew-8thlight from x.x.x.x port 49825 ssh2
+Jul 25 20:58:29 piserver sshd[688]: Accepted publickey for andrew-8thlight from x.x.x.x port 5541 ssh2
+{% endhighlight %}
+
+Listed above are sucessful logins. The ip addresses that have beened crossed out reflect my work addresses. You can see that passwords are still being accepted on my local subnet and both successful logins from an external ip have a public key. I'll be keeping an eye on these logs for a couple weeks, but my server should be sheltered from the majority of attacks! 
+
+[fdns]: http://freedns.afraid.org/
+[debian]: https://www.debian.org/
