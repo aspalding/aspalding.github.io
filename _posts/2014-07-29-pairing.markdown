@@ -11,41 +11,41 @@ One of the most interesting parts of pairing is that you get an alternative pers
 While I was able to provide quite a bit of differences between Ruby and Java, Latoya helped bring to light some abstraction ideas that I should be utilizing more often. One example is breaking up logic. While overriding Java's equals method we came up with: 
 
 {% highlight Java %}
-	@Override
-	public boolean equals(Object o){
-		if(!(o instanceof Ledger))
-			return false;
-		else{
-			Ledger ledger = (Ledger) o;
-			return isEqual(ledger);
-		}
+@Override
+public boolean equals(Object o){
+	if(!(o instanceof Ledger))
+		return false;
+	else{
+		Ledger ledger = (Ledger) o;
+		return isEqual(ledger);
 	}
+}
 	
-	private boolean isEqual(Ledger ledger){
-		return isEqualBalance(ledger.getBalance()) && isEqualList(ledger.getTransactionList());
-	}
+private boolean isEqual(Ledger ledger){
+	return isEqualBalance(ledger.getBalance()) && isEqualList(ledger.getTransactionList());
+}
 	
-	private boolean isEqualBalance(int balance) {
-		return balance == this.balance;		
-	}
+private boolean isEqualBalance(int balance) {
+	return balance == this.balance;		
+}
 	
-	private boolean isEqualList(LinkedList<Transaction> transactionList){
-		return transactionList.equals(this.transactionList);
-	}
+private boolean isEqualList(LinkedList<Transaction> transactionList){
+	return transactionList.equals(this.transactionList);
+}
 {% endhighlight %}
 
 I would have probably simply written this:
 
 {% highlight Java %}
-	@Override
-	public boolean equals(Object o){
-		if(!(o instanceof Ledger))
-			return false;
-		else{
-			Ledger ledger = (Ledger) o;
-			return (ledger.getBalance() == this.balance) && (ledger.getTransactionList().equals(this.transactionList));
-		}
+@Override
+public boolean equals(Object o){
+	if(!(o instanceof Ledger))
+		return false;
+	else{
+		Ledger ledger = (Ledger) o;
+		return (ledger.getBalance() == this.balance) && (ledger.getTransactionList().equals(this.transactionList));
 	}
+}
 {% endhighlight %}
 
 However, this function violates the OCP (Open Closed Principal). If I were to add an date another field this function would have to change. Keeping those values `private` and abstracting them away from the implementation makes your code more adaptable to change and adds some additional clarity. Thanks Latoya! 
