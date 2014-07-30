@@ -17,7 +17,7 @@ Match Address *,!192.168.1.0/24
 
 In plain english, the rule says that if your address lies outside my local subnet (192.168.1.X), then you cannot simply login with a password, logging in as root is not allowed, and you only get two shots. With password authentification disabled a public key/private key is required to log on. To generate these I utilized `ssh-keygen` and `ssh-copy-id`.
 
-Another hurdle when opening up to the rest of the internet is that most of our internet providers do not give us a static public ip address. To deal with this I've signed up for [freedns][fdns]. The firmware I have installed on my router lets it talk directly to this service. When my ip address changes, my router tells the DDNS provider. When everything is ready to go, check your port configuration, create a entry pointing to the static ip address you've given your server, and enable TCP port 22. 
+Another hurdle when opening up to the rest of the internet is that most of our internet providers do not give us a static public ip address. To deal with this I've signed up for [freedns][fdns]. The firmware I have installed on my router lets it talk directly to this service. When my ip address changes, my router tells the DDNS provider. When everything is ready to go, check your port configuration, create an entry pointing to the static ip address you've given your server, and enable TCP port 22. 
 
 Checking the tail log you can see failed attempts. The behavior below seems to be reflect a script trying common user name possibilities. A postgres user for example may be a common user name as many people rely on the postgres database.
 
