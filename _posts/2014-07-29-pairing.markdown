@@ -4,7 +4,7 @@ title: "Paring!"
 date: 2014-07-29
 ---
 
-This past week I got the opportunity to pair with Latoya as we work alongside the London apprentices on one of Mike's Java training courses. 
+This past week I got the opportunity to pair with LaToya as we work alongside the London apprentices on one of Mike's Java training courses. 
 
 One of the most interesting parts of pairing is that you get an alternative perspective on every change you make. In addition I've been able to share some of the Java knowledge I have! This morning coming into our meeting with Mike I noticed that I had already filled Latoya in on some of the topics we were being briefed on! 
 
@@ -48,4 +48,4 @@ public boolean equals(Object o){
 }
 {% endhighlight %}
 
-However, this function violates the OCP (Open Closed Principal). If I were to add an date another field this function would have to change. Keeping those values `private` and abstracting them away from the implementation makes your code more adaptable to change and adds some additional clarity. Thanks Latoya! 
+However, this function violates the OCP (Open Closed Principal). If I were to add an date another field this function would have to change. Keeping those values `private` and abstracting them away from the implementation makes your code more adaptable to change and adds some additional clarity. Thanks LaToya! 
