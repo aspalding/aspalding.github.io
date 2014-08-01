@@ -8,7 +8,7 @@ This past week I got the opportunity to pair with LaToya as we work alongside th
 
 One of the most interesting parts of pairing is that you get an alternative perspective on every change you make. In addition I've been able to share some of the Java knowledge I have! This morning coming into our meeting with Mike I noticed that I had already filled Latoya in on some of the topics we were being briefed on! 
 
-While I was able to provide quite a bit of differences between Ruby and Java, Latoya helped bring to light some abstraction ideas that I should be utilizing more often. One example is breaking up logic. While overriding Java's equals method we came up with: 
+While I was able to provide quite a bit of differences between Ruby and Java, LaToya helped bring to light some abstraction ideas that I should be utilizing more often. One example is breaking up logic. While overriding Java's equals method we came up with: 
 
 {% highlight Java %}
 @Override
