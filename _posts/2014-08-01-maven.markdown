@@ -1,0 +1,67 @@
+---
+layout: post
+title: "Maven!"
+date: 2014-08-01
+---
+
+My goal for this Friday was to get my Java Server managed by Maven. The purpose was to create a standard way to run the tests, build a jar, and execute my server. To get this setup I needed a `pom` and in addition I had to restructure my directory structure. Now anybody that clones my directory can simply run `mvn test` and `mvn package` to test and package the project. 
+
+My `pom` file is as follows. 
+
+{% highlight xml %}
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>JavaServer</groupId>
+    <artifactId>JavaServer</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <url>http://maven.apache.org</url>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <forceCreation>true</forceCreation>
+                    <archive>
+                        <manifest>
+                            <mainClass>Application</mainClass>
+                        </manifest>
+                    </archive>
+                    <outputDirectory>jars</outputDirectory>
+                    <finalName>JavaServer</finalName>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
+{% endhighlight %}
+
+My next task is to integrate my ruby tic tac toe with my Java server. The `pom` says the project is called JavaServer, it depends on JUnit, and the packages maven-compiler-plugin and maven-jar-plugin should be downloaded if they are not. The compiler plugin allows you to define the Java version being targeted and the jar plugin defines the directory as well as the location of the main method of the project. Just for example, I plan on serving my Ruby Tic Tac Toe with my JavaServer. I'd simply add another plugin, `jruby-maven-plugin`; that plugin would be downloaded and put into my class path the next time I executed a maven command. 
+
+Also, if you haven't done this already, make sure Java is in your `.bash_profile` as follows:
+
+`export JAVA_HOME=$(/usr/libexec/java_home)`
