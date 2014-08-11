@@ -38,7 +38,7 @@
 
 <p>Mark provided advice to deal with the possibility of more than one location in the board being correct. This situation was problematic because as the minimax function was altered, it would sometimes choose a spot that was technically correct, but not the location that my test was looking for. This resulted in failing tests and rendered these tests invalid. The solution was to define an array of correct moves and to assert the function call. The RSpec documentation denotes this as the <code>include</code> matcher, that page can be found <a href="https://www.relishapp.com/rspec/rspec-expectations/v/2-0/docs/matchers/include-matcher">here</a>. In this example, the AI needs to make a choice this turn to block a fork, but there are three possibilities that could result in a successful block. I have provided an example below. </p>
 
-<div class="highlight"><pre><code class="ruby"><span class="n">it</span> <span class="s2">&quot;another fork&quot;</span> <span class="k">do</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">it</span> <span class="s2">&quot;another fork&quot;</span> <span class="k">do</span>
     <span class="n">board</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">,</span>
              <span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="s2">&quot;-&quot;</span><span class="p">,</span>
              <span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="s2">&quot;-&quot;</span><span class="o">]</span>
@@ -48,7 +48,7 @@
 
 <p>To deal with the problem of testing input and output, Myles suggested that creating IO helper classes. While working on this problem I had numerous suggestions for testing I/O. Some people suggested using StringIO, other suggested creating mocks, stubs, or a fake, and some people suggested not to bother testing that functionality. I came up with the following. Since I named the class IoFake, lets call it a &quot;fake.&quot;</p>
 
-<div class="highlight"><pre><code class="ruby"><span class="k">class</span> <span class="nc">IoFake</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">IoFake</span>
   <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">some_input</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
     <span class="vi">@some_input</span> <span class="o">=</span> <span class="n">some_input</span>
   <span class="k">end</span>

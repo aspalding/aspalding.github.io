@@ -38,7 +38,7 @@
 
 <p>As a security habit, I haven&#39;t had a public facing server in my home for quite some time now. SSH servers are a frequent target for people looking to exploit insecure computers. It is advised that you do not allow password logins or the root user to login over SSH. However, I still desired to have those settings while on my local network. In accordance, I setup my <code>sshd_config</code> to use a match rule. That rule is as follows:</p>
 
-<div class="highlight"><pre><code class="irc">Match Address *,!192.168.1.0/24
+<div class="highlight"><pre><code class="language-irc" data-lang="irc">Match Address *,!192.168.1.0/24
   PasswordAuthentication no 
   PermitRootLogin no
   MaxAuthTries 2</code></pre></div>
@@ -49,7 +49,7 @@
 
 <p>Checking the tail log you can see failed attempts. The behavior below seems to be reflect a script trying common user name possibilities. A postgres user for example may be a common user name as many people rely on the postgres database.</p>
 
-<div class="highlight"><pre><code class="irc">$ tail /var/log/auth.log -n 100
+<div class="highlight"><pre><code class="language-irc" data-lang="irc">$ tail /var/log/auth.log -n 100
 
 Jul 26 23:14:25 piserver sshd[2053]: Invalid user zabbix from 210.211.99.244
 Jul 26 23:14:25 piserver sshd[2053]: input_userauth_request: invalid user zabbix [preauth]

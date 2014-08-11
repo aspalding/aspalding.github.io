@@ -38,7 +38,7 @@
 
 <p>The definition of OCP itself seems to be a bit contradictory, however by seeing examples in my own code I was able to get a solid understanding of what the principal really meant! OCP allows programmers to anticipate change along an axis. By making certain design decisions you can make your program more receptive towards specific changes. </p>
 
-<div class="highlight"><pre><code class="ruby"><span class="k">def</span> <span class="nf">diagonal_major?</span><span class="p">(</span><span class="n">board</span><span class="p">,</span> <span class="n">mark</span><span class="p">)</span> <span class="c1">#Initial</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">diagonal_major?</span><span class="p">(</span><span class="n">board</span><span class="p">,</span> <span class="n">mark</span><span class="p">)</span> <span class="c1">#Initial</span>
     <span class="n">board</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">==</span> <span class="n">mark</span> <span class="o">&amp;&amp;</span> <span class="n">board</span><span class="o">[</span><span class="mi">4</span><span class="o">]</span> <span class="o">==</span> <span class="n">mark</span> <span class="o">&amp;&amp;</span> <span class="n">board</span><span class="o">[</span><span class="mi">8</span><span class="o">]</span> <span class="o">==</span> <span class="n">mark</span>
 <span class="k">end</span>
 

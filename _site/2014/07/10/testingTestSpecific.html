@@ -38,7 +38,7 @@
 
 <p>Testing classes and functions that depend on certain files or directories was really tricky. Initially I attempted to create a new class as well as an interface to mock the objects and pretend that the imaginary files did exist. However, this became burdensome as I needed to test additional file functionality. Uncle Bob suggests using &quot;Test-Specific Subclasses&quot; to test this sort of tricky behavior. Using this testing pattern I was able to only override the functions one at a time as I needed them for specific tests. For example:</p>
 
-<div class="highlight"><pre><code class="java"><span class="kd">public</span> <span class="kt">byte</span><span class="o">[]</span> <span class="nf">responseBody</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kt">byte</span><span class="o">[]</span> <span class="nf">responseBody</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
     <span class="k">if</span><span class="o">(</span><span class="n">file</span><span class="o">.</span><span class="na">isFile</span><span class="o">())</span>
         <span class="c1">//do something</span>
     <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">file</span><span class="o">.</span><span class="na">isDirectory</span><span class="o">())</span>
@@ -49,21 +49,21 @@
 
 <p>The File object, file, is passed through the constructor (this is known as dependency injection). To test each conditional, each case requires a slightly different subclass. My testing code is listed below:</p>
 
-<div class="highlight"><pre><code class="java"><span class="nd">@Test</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="nd">@Test</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testValidFilePathResponseString</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
-    <span class="n">File</span> <span class="n">fake</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&quot;&quot;</span><span class="o">){</span>
+    <span class="n">File</span> <span class="n">fake</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">File</span><span class="o">(</span><span class="s">&quot;&quot;</span><span class="o">){</span>
         <span class="nd">@Override</span>
         <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isFile</span><span class="o">(){</span>
             <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
         <span class="o">}</span>
     <span class="o">};</span>
-    <span class="n">Response</span> <span class="n">resp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Response</span><span class="o">(</span><span class="n">fake</span><span class="o">);</span>
+    <span class="n">Response</span> <span class="n">resp</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">Response</span><span class="o">(</span><span class="n">fake</span><span class="o">);</span>
     <span class="n">assertEquals</span><span class="o">(</span><span class="s">&quot;HTTP/1.1 200 OK\nContent-Type: null\n\n&quot;</span><span class="o">,</span> <span class="n">resp</span><span class="o">.</span><span class="na">responseHeader</span><span class="o">(</span><span class="mi">200</span><span class="o">,</span> <span class="s">&quot;&quot;</span><span class="o">));</span>
 <span class="o">}</span>
 
 <span class="nd">@Test</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testValidDirectoryPathResponseString</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
-    <span class="n">File</span> <span class="n">fake</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&quot;&quot;</span><span class="o">){</span>
+    <span class="n">File</span> <span class="n">fake</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">File</span><span class="o">(</span><span class="s">&quot;&quot;</span><span class="o">){</span>
         <span class="nd">@Override</span>
         <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isFile</span><span class="o">(){</span>
             <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
@@ -73,13 +73,13 @@
             <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
         <span class="o">}</span>
     <span class="o">};</span>
-    <span class="n">Response</span> <span class="n">resp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Response</span><span class="o">(</span><span class="n">fake</span><span class="o">);</span>
+    <span class="n">Response</span> <span class="n">resp</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">Response</span><span class="o">(</span><span class="n">fake</span><span class="o">);</span>
     <span class="n">assertEquals</span><span class="o">(</span><span class="s">&quot;HTTP/1.1 200 OK\nContent-Type: text/html\n\n&quot;</span><span class="o">,</span> <span class="n">resp</span><span class="o">.</span><span class="na">responseHeader</span><span class="o">(</span><span class="mi">200</span><span class="o">,</span> <span class="s">&quot;&quot;</span><span class="o">));</span>
 <span class="o">}</span>
 
 <span class="nd">@Test</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testInvalidPathResponseString</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
-    <span class="n">File</span> <span class="n">fake</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">&quot;&quot;</span><span class="o">){</span>
+    <span class="n">File</span> <span class="n">fake</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">File</span><span class="o">(</span><span class="s">&quot;&quot;</span><span class="o">){</span>
         <span class="nd">@Override</span>
         <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isFile</span><span class="o">(){</span>
             <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
@@ -89,7 +89,7 @@
             <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
         <span class="o">}</span>
     <span class="o">};</span>
-    <span class="n">Response</span> <span class="n">resp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Response</span><span class="o">(</span><span class="n">fake</span><span class="o">);</span>
+    <span class="n">Response</span> <span class="n">resp</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">Response</span><span class="o">(</span><span class="n">fake</span><span class="o">);</span>
     <span class="n">assertEquals</span><span class="o">(</span><span class="s">&quot;HTTP/1.1 404 Not Found\n\n&quot;</span><span class="o">,</span> <span class="n">resp</span><span class="o">.</span><span class="na">responseHeader</span><span class="o">(</span><span class="mi">200</span><span class="o">,</span> <span class="s">&quot;&quot;</span><span class="o">));</span>
 <span class="o">}</span></code></pre></div>
 

@@ -38,7 +38,7 @@
 
 <p>The templating engine works pretty similarly to Django&#39;s templating engine, handlebars, jinga2, etc. Just as an example, this is more or less how I utilized this feature of Jekyll. </p>
 
-<div class="highlight"><pre><code class="django"><span class="cp">{%</span> <span class="k">for</span> <span class="nv">project</span> <span class="k">in</span> <span class="nv">site.data.projects</span> <span class="cp">%}</span><span class="x"></span>
+<div class="highlight"><pre><code class="language-django" data-lang="django"><span class="cp">{%</span> <span class="k">for</span> <span class="nv">project</span> <span class="k">in</span> <span class="nv">site.data.projects</span> <span class="cp">%}</span><span class="x"></span>
 <span class="x">  </span><span class="cp">{{</span> <span class="nv">project.name</span> <span class="cp">}}</span><span class="x"></span>
 <span class="x">  </span><span class="cp">{{</span> <span class="nv">project.description</span> <span class="cp">}}</span><span class="x"></span>
 <span class="x">  </span><span class="cp">{{</span> <span class="nv">project.github</span> <span class="cp">}}</span><span class="x"></span>

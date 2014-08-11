@@ -40,10 +40,10 @@
 
 <p>For example:</p>
 
-<div class="highlight"><pre><code class="java"><span class="c1">//Old version (more or less)</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">//Old version (more or less)</span>
 <span class="kd">public</span> <span class="n">String</span> <span class="nf">fileToString</span><span class="o">(</span><span class="n">path</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
-        <span class="n">InputStream</span> <span class="n">inputStream</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FileInputStream</span><span class="o">(</span><span class="n">path</span><span class="o">);</span>
-        <span class="n">Reader</span> <span class="n">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="n">InputStreamReader</span><span class="o">(</span><span class="n">inputStream</span><span class="o">,</span> <span class="s">&quot;UTF-8&quot;</span><span class="o">);</span>
+        <span class="n">InputStream</span> <span class="n">inputStream</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">FileInputStream</span><span class="o">(</span><span class="n">path</span><span class="o">);</span>
+        <span class="n">Reader</span> <span class="n">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">InputStreamReader</span><span class="o">(</span><span class="n">inputStream</span><span class="o">,</span> <span class="s">&quot;UTF-8&quot;</span><span class="o">);</span>
 
         <span class="kt">int</span> <span class="n">data</span><span class="o">;</span>
         <span class="k">do</span> <span class="o">{</span>

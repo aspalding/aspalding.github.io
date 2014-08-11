@@ -40,7 +40,7 @@
 
 <p>While I was able to provide quite a bit of differences between Ruby and Java, LaToya helped bring to light some abstraction ideas that I should be utilizing more often. One example is breaking up logic. While overriding Java&#39;s equals method we came up with: </p>
 
-<div class="highlight"><pre><code class="java"><span class="nd">@Override</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="nd">@Override</span>
 <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">equals</span><span class="o">(</span><span class="n">Object</span> <span class="n">o</span><span class="o">){</span>
     <span class="k">if</span><span class="o">(!(</span><span class="n">o</span> <span class="k">instanceof</span> <span class="n">Ledger</span><span class="o">))</span>
         <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
@@ -64,7 +64,7 @@
 
 <p>I would have probably simply written this:</p>
 
-<div class="highlight"><pre><code class="java"><span class="nd">@Override</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="nd">@Override</span>
 <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">equals</span><span class="o">(</span><span class="n">Object</span> <span class="n">o</span><span class="o">){</span>
     <span class="k">if</span><span class="o">(!(</span><span class="n">o</span> <span class="k">instanceof</span> <span class="n">Ledger</span><span class="o">))</span>
         <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>

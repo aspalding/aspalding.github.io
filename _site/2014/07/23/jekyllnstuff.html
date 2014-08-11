@@ -38,7 +38,7 @@
 
 <p>Anyway, since I&#39;ve been trying to make a post everyday, the front page of my blog was getting incredibly long. In accordance I decided to add pagination. Really just a couple lines of code, the documentation provided a solid start. Heres what I wound up:</p>
 
-<div class="highlight"><pre><code class="django"><span class="x">&lt;ul class=&quot;pager&quot;&gt;</span>
+<div class="highlight"><pre><code class="language-django" data-lang="django"><span class="x">&lt;ul class=&quot;pager&quot;&gt;</span>
 <span class="x">  </span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">paginator.previous_page</span> <span class="cp">%}</span><span class="x"></span>
 <span class="x">        &lt;li class=&quot;previous&quot;&gt;&lt;a href=&quot;</span><span class="cp">{{</span> <span class="nv">paginator.previous_page_path</span> <span class="o">|</span> <span class="nf">prepend</span><span class="o">:</span> <span class="nv">site.baseurl</span> <span class="o">|</span> <span class="nf">replace</span><span class="o">:</span> <span class="s1">&#39;//&#39;</span><span class="o">,</span> <span class="s1">&#39;/&#39;</span> <span class="cp">}}</span><span class="x">&quot;&gt;&amp;larr; Previous&lt;/a&gt;&lt;/li&gt;</span>
 <span class="x">  </span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>

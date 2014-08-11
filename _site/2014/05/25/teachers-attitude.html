@@ -38,7 +38,7 @@
 
 <p>To elaborate, they were working on an Tic Tac Toe problem in Ruby. She was attempting to recursively call a function thats utility was to check the validity of a move and place a piece on the board. If the move was not valid the function would simply be called again. Fair enough, this sounds like a good enough solution to the problem. I&#39;ve tried to recreate the problem in pseudocode to elaborate the issue.</p>
 
-<div class="highlight"><pre><code class="python"><span class="k">def</span> <span class="nf">move</span><span class="p">(</span><span class="n">position</span><span class="p">,</span> <span class="n">mark</span><span class="p">):</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">move</span><span class="p">(</span><span class="n">position</span><span class="p">,</span> <span class="n">mark</span><span class="p">):</span>
   <span class="n">redunant</span><span class="p">(</span><span class="n">position</span><span class="p">)</span>
   <span class="n">game</span><span class="p">[</span><span class="n">position</span><span class="p">]</span> <span class="o">=</span> <span class="n">mark</span>
 
@@ -57,7 +57,7 @@
 
 <p>The apprentice was able to tell me her goal; to recursively call the function to request a new position if the input was not valid. I immediately decided to try and track down her base case and recursive case. Upon realizing that there was no recursive call in the body I asked where she was attempting to make her recursive call, it turned out to be in a separate function that I believe was redundant. As a result I suggested that we eliminate this function and simply relocate the conditional to the <code>move</code> function, then recursively call the function if an invalid position was given. We arrived at a solution similar to the pseudocode below:</p>
 
-<div class="highlight"><pre><code class="python"><span class="k">def</span> <span class="nf">move</span><span class="p">(</span><span class="n">position</span><span class="p">,</span> <span class="n">mark</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">move</span><span class="p">(</span><span class="n">position</span><span class="p">,</span> <span class="n">mark</span><span class="p">)</span>
   <span class="k">if</span> <span class="ow">not</span> <span class="n">valid</span><span class="p">(</span><span class="n">position</span><span class="p">):</span>
     <span class="n">out</span><span class="p">()</span>
     <span class="n">move</span><span class="p">(</span><span class="n">position</span><span class="p">,</span> <span class="n">mark</span><span class="p">)</span> <span class="c">#recursive call</span>
