@@ -1,0 +1,11 @@
+---
+layout: post
+title: "JavaServer multithreading."
+date: 2014-08-11
+---
+
+This past week I've been putting the finishing touches on my JavaServer. The issues remaining are mostly a matter of multithreading. In preparation I re-read through Clean Code's chapters on multithreading and the Appendix B. 
+
+Some of the things I attempted were to use the synchronized keyword, putting the threads to sleep, etc. However, to fix the general problem related to the simultaneous test I simply had to add another argument to the constructor of my `ServerSocket`. This class has a constructor parameter called "backlog" that I had simply overlooked. By increasing that amount to the amount of requests that the simultaneous test required (4096) my server passes this every time. The backlog is simply how many requests the server should queue without dropping any of the requests. 
+
+Honestly, I should have noticed that earlier. I've probably visited the ServerSocket api page dozens of times since I started the project! Java's documentation is thorough and helpful, but sometimes the details are hiding and you really have to sift through them. 
