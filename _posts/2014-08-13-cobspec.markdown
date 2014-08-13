@@ -1,0 +1,33 @@
+---
+layout: post
+title: "Cob Spec."
+date: 2014-08-13
+---
+
+Today I went ahead and modified `cob_spec` a bit. Spending about a month and a half running the suite dozens of times a day, you start to notice little improvements that could be made. I specifically chose to beef up the basic authentification test. 
+
+The process that I took overall on my server was that I'd get a gist of what the `cob_spec` test was asking, start writing smaller unit tests, and re-running the `cob_spec` tests as I made progress. While making progess in this manor on the basic authentification test I realized that I didn't even have to decode the parameter and confirm the username and password encoded in Base64. I could simply check if the Authorization header was preasant. If it was, respond with a 200 otherwise respond with a 401. 
+
+{% highlight java %}
+public Response get(){
+        if(!headers.containsKey("Authorization"))
+            return new Response(401);
+        else
+            return new Response(200);
+}
+{% endhighlight %}
+
+To correct this, I made a new branch for `cob_spec`, added a new function to http_browser.rb, and included that function in context.txt in the propper FitNesseRoot directory. 
+
+{% highlight java %}
+public Response get(){
+        if(!headers.containsKey("Authorization"))
+            return new Response(401);
+		else if(!valid(headers.get("Authorization")))
+			return new Response(401);
+        else
+            return new Response(200);
+}
+{% endhighlight %}
+
+Now the test requires a valid username and password to pass the acceptance test. 
