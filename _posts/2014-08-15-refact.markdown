@@ -1,0 +1,11 @@
+---
+layout: post
+title: "Refactoring and TDD"
+date: 2014-08-15
+---
+
+This week I finally was able to get all my cob spec tests passing consistently. One thing I noticed over the span of this project is the importance of refactoring. Test driven development provides a level of confidence that allows you to, sometimes drastically, change the structure of your code. 
+
+At a couple points while developing my JavaServer I got stuck. Several times I had to take a step back and rethink how I was approaching a problem and come up with a refactor that would make future progress easier. In addition my temporary mentor, Kevin, gave me some really solid ideas for refactoring my code in a couple instances. What I found was that after committing to a big refactor, I often had additional steam and was able to more readily implement additional features. 
+
+This past week I hardly even had to write any tests. My test coverage already covered the functionality that needed to be modified to complete my project. I could more or less modify the code without worrying, knowing that my test would let me know if I had broken something. Over the past couple weeks I've become quite comfortable with TDD. Although there are still times when I get frustrated, once I can imagine an alternative solution, the implementation process goes a lot more smoothly than manually retesting a program while making small changes. 
