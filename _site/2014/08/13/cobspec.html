@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Cob Spec.</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/custom.css">
+
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css" rel="stylesheet">
+        <link href="/assets/font/font-mfizz.css" rel="stylesheet">
+
+    </head>
+    <body>
+      <div class="container">
+
+          <div class="row">
+          <h1>
+            <a href="/">atj</a>
+            <small>I'm a gnu.</small>
+            <a href="/work/"><span class="fa fa-file-code-o pull-right"></a></span>
+            <a href="/contact/"><span class="fa fa-comment-o pull-right">&emsp;</a></span>
+          </h1>
+            
+          </div>
+
+          <div class="row">
+            <div class="col-md-12 col-xs-12">
+              <h2>Cob Spec.</h2>
+<p class="meta">13 Aug 2014</p>
+<p>Today I went ahead and modified <code>cob_spec</code> a bit. Spending about a month and a half running the suite dozens of times a day, you start to notice little improvements that could be made. I specifically chose to beef up the basic authentification test. </p>
+
+<p>The process that I took overall on my server was that I&#39;d get a gist of what the <code>cob_spec</code> test was asking, start writing smaller unit tests, and re-running the <code>cob_spec</code> tests as I made progress. While making progess in this manor on the basic authentification test I realized that I didn&#39;t even have to decode the parameter and confirm the username and password encoded in Base64. I could simply check if the Authorization header was preasant. If it was, respond with a 200 otherwise respond with a 401. </p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="n">Response</span> <span class="nf">get</span><span class="o">(){</span>
+        <span class="k">if</span><span class="o">(!</span><span class="n">headers</span><span class="o">.</span><span class="na">containsKey</span><span class="o">(</span><span class="s">&quot;Authorization&quot;</span><span class="o">))</span>
+            <span class="k">return</span> <span class="k">new</span> <span class="nf">Response</span><span class="o">(</span><span class="mi">401</span><span class="o">);</span>
+        <span class="k">else</span>
+            <span class="k">return</span> <span class="k">new</span> <span class="nf">Response</span><span class="o">(</span><span class="mi">200</span><span class="o">);</span>
+<span class="o">}</span></code></pre></div>
+
+<p>To correct this, I made a new branch for <code>cob_spec</code>, added a new function to http_browser.rb, and included that function in context.txt in the propper FitNesseRoot directory. </p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="n">Response</span> <span class="nf">get</span><span class="o">(){</span>
+        <span class="k">if</span><span class="o">(!</span><span class="n">headers</span><span class="o">.</span><span class="na">containsKey</span><span class="o">(</span><span class="s">&quot;Authorization&quot;</span><span class="o">))</span>
+            <span class="k">return</span> <span class="k">new</span> <span class="nf">Response</span><span class="o">(</span><span class="mi">401</span><span class="o">);</span>
+        <span class="k">else</span> <span class="nf">if</span><span class="o">(!</span><span class="n">valid</span><span class="o">(</span><span class="n">headers</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;Authorization&quot;</span><span class="o">)))</span>
+            <span class="k">return</span> <span class="k">new</span> <span class="nf">Response</span><span class="o">(</span><span class="mi">401</span><span class="o">);</span>
+        <span class="k">else</span>
+            <span class="k">return</span> <span class="k">new</span> <span class="nf">Response</span><span class="o">(</span><span class="mi">200</span><span class="o">);</span>
+<span class="o">}</span></code></pre></div>
+
+<p>Now the test requires a valid username and password to pass the acceptance test. </p>
+
+
+
+<ul class="pager">
+
+  <li class="previous"><a href="/2014/08/11/multi.html">&larr; JavaServer multithreading.</a></li>
+
+
+  <li class="next"><a href="/2014/08/15/refact.html">Refactoring and TDD &rarr;</a></li>
+
+</ul>
+
+            </div>
+          </div>
+        </div>
+        </body>
+  	<script>
+  	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  	  ga('create', 'UA-47463347-1', 'aspalding.github.io');
+  	  ga('send', 'pageview');
+
+  	</script>
+
+</html>
