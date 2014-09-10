@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Switching contexts."
-date: 2014-09-05
+date: 2014-09-09
 ---
 
 Last week I expected to be working on footprints, one of our internal projects. However due to our requirements we've had to dig into a couple other code bases. In addition to functionality that needed to be added to footprints, we had to edit the 8th Light website as well as warehouse. 
