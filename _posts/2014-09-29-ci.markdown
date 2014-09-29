@@ -1,0 +1,27 @@
+---
+layout: post
+title: "Continuous Integration: Production Clone."
+date: 2014-09-29
+---
+
+Working on footprints for the past couple weeks has definitely taught me quite a bit. I feel like I can actually say that I know git pretty well at this point. In addition I'm getting a good taste of how it feels to work on "legacy" or least working with software that is much more mature than the work I've put into it. I think the biggest rough spots the first couple weeks were integration problems. 
+
+My teammate and I have been given the task to introduce and depend more heavily on data being provided through a service that lives outside of the application we are working on known as warehouse. Our changes more or less have happened in three separate projects every week, Footprints, Warehouse, and Warehouse-ruby-client. While in testing, we have a fake api set up to attempt to duplicate the behavior of the external api. When it came to integrating the work, it simply didn't work. 
+
+So here it is. The project was set up in such a way that we were not able to touch the real warehouse api until we had went through a review process and deployed to staging. That doesn't sound like continuous integration to me! To alleviate this issue I introduced a new rails environment to the project. The environment is identical to the development, except it consumes the actual api rather than the test api. Now we can simply run `RAILS_ENV=local rails s` and see what is happening upon making requests that involve warehouse. The warehouse and footprints have another project between one another. Warehouse-ruby-client. Here are some useful Gem tricks that will allow you to consume a Gem before it is "released."
+
+{% highlight ruby %}
+gem 'project', git: 'git@github.com:user/project.git' # Build gem from github, defaults to master. 
+gem 'project', :git => 'git@github.com:user/project.git', :branch => 'not-master' # Specify a branch other than master.
+gem 'project', :path => './path/to/gem' # Specify a directory rather than git. 
+{% endhighlight %}
+
+Using a path is best for quick fixes, a branch for a feature in progress, and the default for production/staging. 
+
+I've found that the fake api is great for running my test suite. It should be as modeled as closely to the external service as possible. However, it is beneficial to integrate into the actual service at least once our twice a day. Deploying is more reliable and you can assume that your code will work if you've made sure as you've progressed. 
+
+Martin Fowler advocates this methodology. While it would be advantageous to test entirely against an exact replica, it is not always possible. "As a result it's common to have a very artificial environment for the commit tests for speed, and use a production clone for secondary testing." ([Fowler][fowler]) 
+
+By having a secondary environment to test against, I feel more confident that what I'm coding is actually doing what I think it is and Fridays have become (a bit) less stressful. 
+
+[fowler]: http://www.martinfowler.com/articles/continuousIntegration.html#TestInACloneOfTheProductionEnvironment
