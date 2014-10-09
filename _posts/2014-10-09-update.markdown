@@ -1,0 +1,13 @@
+---
+layout: post
+title: "Footprints: Retro."
+date: 2014-10-09
+---
+
+These past few weeks I've been working on an internal tool called footprints. This past week I've been switching between pairing with craftsmen and introducing Dave to the footprints codebase so he can pick up where we left off. So what have I learned? 
+
+First and foremost I got some experience working along side someone else. I learned quite a few nifty git tricks and a solid git work flow. Working on solo projects may get you familiar with the basics of git but I've found that working alongside someone else brings out some of the more powerful features that git offers. Rebasing, squashing redundant commits, merge conflicts, etc. I continued learning Ruby and as my first project with Rails, I have a good idea of where Rails magic is happening. I also got some experience working with a more mature application and now have first hand experience dealing with technical debt that has added up. I think I have a better understanding of what decisions could result in technical debt, some ideas on how to avoid it, and some ideas how to continue adding features despite that debt. 
+
+The biggest challenges seemed to be a result of communication and process problems. Our IPM was Friday and it was difficult to have all our code ready, reviewed, and merged by Friday. Even when we had a feature pull request in by Wednesday it often wasn't merged in until Friday. We ran into some integration problems as a result of pulling data from an external API and originally had no way to confirm that our tests were working until moving that code into the staging server (crossing our fingers). Our last iteration we was the first time we were able to deploy with absolutely no integration problems, and I believe this is largely because we set up the facilities to test and walkthrough the functionality on with a local instance of said API. 
+
+Overall I had a positive experience. I think I learned quite a bit from the coworker I worked alongside and from some interesting advice from our "clients." 
