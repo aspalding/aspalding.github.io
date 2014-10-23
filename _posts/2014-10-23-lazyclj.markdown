@@ -1,0 +1,11 @@
+---
+layout: post
+title: "Clojure and lazy evaluation."
+date: 2014-10-23
+---
+
+One of the preferred programming languages at my place of work is Clojure. Before coming here I'd programmed in a variety of programming languages, but never in a functional programming language (or a lisp). It's definitely taken some getting used to and while I feel productive working in Clojure at this point, there are still some concepts I'd like to understand a little bit better.
+
+One of those features is lazy evaluation and more specifically lazy sequences. Lazy sequences are not evaluated until their values are required, however sometimes this can give undesirable results and create hard to find test failures. While working on a project this week we were using map to traverse through a collection and update values in our database. The value was never being used. As a result the lazy sequence was never trigger and caused a bit of confusion, why isn't this working! 
+
+Luckily you can force the evaluation by wrapping the function returning a lazy sequence with the function [dorun](http://clojuredocs.org/clojure.core/dorun)! This is incredibly helpful. While lazy evaluation provides some benefits (don't waste resources if you're not going to use them) its nice to be able to override that functionality when need be. I'm not sure if my solution is idiomatic but I'm glad Clojure provides these facilities. 
