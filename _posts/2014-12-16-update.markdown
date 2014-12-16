@@ -1,0 +1,13 @@
+---
+layout: post
+title: "Working with clients!"
+date: 2014-12-16
+---
+
+These past couple months I've been working on an unnamed client project. I've learned a lot through this process and I guess this will be a quick summary of some of those things. 
+
+I've learned quite a bit of common courtesy in regards to working on a team. Put forth your commits as fully functional bits of code that can be run without the entire branch. Make sure to follow the general conventions that are established by your team (this can be confusing at times because a lot of the naming schemes are in the process of being changed). Make sure there is no :require cruft gathering at the top of your source files. Communicate with your team members frequently. 
+
+Although our team lead shelters us from a lot of direct communication with out client, it has been an interesting journey figuring out how to translate spoken requirements into acceptance criteria. Getting to see our clients perspective is helpful for knowing how we should focus our attention on the project.
+
+Another thing I've gotten out of this working on this project is a deeper understanding and appreciation of Clojure. Before this project I liked Clojure, and found it interesting, but I couldn't say that I loved it. At this point however, I'd say that Clojure is one of my favorite languages. I've become a lot more comfortable and I feel like I've become pretty productive in Clojure. One of my favorite aspects is working with collections in Clojure. Map/Reduce/Filter are incredibly concise and pleasant to work with in Clojure and I feel like I know those functions inside and out at this point. 
