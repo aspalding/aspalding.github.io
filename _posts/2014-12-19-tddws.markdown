@@ -1,0 +1,16 @@
+---
+layout: post
+title:  "Retrospective: First public speaking experience!"
+date:   2014-12-19
+---
+
+
+This past Saturday I gave a presentation/workshop at my local linux user group on test driven development. 
+
+The talk started by talking about some histroy behind Test Driven Development. I discussed some benefits such as the ability to put off implementation details, increased ability to refactor, and a free api. I moved on to explain the general rules of test driven development. At this point I prompted the bowling kata to my audience. I provided a failing test and a pending test through a github repo and instructed everyone how they can install RSpec on their Linux distribution (I came prepared for this, luckily I have both debian and red hat based systems in my home!)
+
+If I had to change anything, I probably would have adapted my talk to python (as quite a few of our members are python users!). As a result the workshop element didn't work out as nicely as I would have liked and we just implemented the first couple tests and passing code  as a group. We eventually diverged into some more general conversation, questions and answers. We talked about other testing frameworks, how can I practice this in my favorite language? How to mock out more complex data such as database calls and HTTP responses. Some people shared frameworks they used for specific tasks (e.g frameworks focusing on REST frameworks, [zato-apitest](https://github.com/zatosource/zato-apitest) and standard console out, [cram](https://bitheap.org/cram/)). I felt as if I was able to field the conversation and questions pretty well!
+
+It felt great to share something I've become incredibly fond of over the past several months. While our group is diverse, consisting of system admins, embedded, and software engineers, everyone showed great interest. One thing that I know I need work on is knowing who my audience is and tailoring my talks to be acceptable for the majority of my group. I think a larger overview and a planned programming example may have been more appropriate. One of my fellow 8th Lighters suggested doing an easier kata such as fizzbuzz. 
+
+That being said, I appreciated the oppurtunity to present to a group of people I respect and it was a great learning experience. While we didn't make it through the excercise, people seemed to be intrigued. 
