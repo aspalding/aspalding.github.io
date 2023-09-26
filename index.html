@@ -1,25 +1,29 @@
----
-layout: default
-title: atj
----
-
-<h2>Posts</h2>
-<ul class="list-unstyled">
-  {% for post in paginator.posts %}
-    <li>
-      <h3><a href="{{ post.url }}">{{post.title}}</a> </br><small>{{ post.date | date_to_string }}</small></h3>
-      {{post.excerpt}}
-    </li>
-  {% endfor %}
-</ul>
-
-
-<ul class="pager">
-  {% if paginator.previous_page %}
-		<li class="previous"><a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Previous</a></li>
-  {% endif %}
-
-  {% if paginator.next_page %}
-		<li class="next"><a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &rarr;</a></li>
-  {% endif %}
-</ul>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css"> 
+    <title>Andrew Spalding Landing</title>
+</head>
+<body>
+  <header>
+    <h1>Andrew Spalding</h1>
+  </header>
+  <main>
+    <p>
+      I am a full stack software engineer with experience working in a variety of industries such as healthcare, e-commerce, and entertainment as a technical
+      contributor and leader. I deeply familiar with server and client side programming as well as developer operations.
+    </p>
+    <p>
+      I perminently reside in Chicago. I am working on free open source software, environmentalism, and a better future. 
+      I am currently employed by a small cooperative called Immers Space and am interested in 
+      <a href="https://web.immers.space/metaverse-design-service/">building software</a>
+      with you.
+    </p>
+  </main>
+  <footer>
+    <p>contact me andrewtspalding at gmail dot com or in the fediverse andrew773 at mastodon dot online</p>
+  </footer>
+</body>
+</html>
