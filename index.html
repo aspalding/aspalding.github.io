@@ -1,26 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css"> 
-    <title>Andrew Spalding Landing</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+  <title>Andrew Spalding Landing</title>
 </head>
 <body>
   <header>
     <h1>Andrew Spalding</h1>
+    <nav>
+			<ul>
+				<li><a href="#experience">Experience</a></li>
+				<li><a href="#interests">Interests</a></li>
+				<li><a href="#contact">Contact</a></li>
+			</ul>
+		</nav>
   </header>
   <main>
-    <p>
-      I am a full stack software engineer with experience working in a variety of industries such as healthcare, e-commerce, and entertainment as a technical
-      contributor and leader. I am deeply familiar with server and client side programming as well as developer operations.
-    </p>
-    <p>
-      I was born, raised, and live in Chicago. I work on software, environmentalism, and a better future.
-    </p>
+    <div id="experience">
+      <h3>Experience</h3>
+      <p>
+        I am a full stack software engineer with experience working in a variety of industries such as healthcare, e-commerce, and entertainment as a technical
+        contributor and leader.
+        I have spent most of my career building SaaS platforms using opinionated web frameworks like Django and Rails.
+        I prefer working with open source, editing text using vim, and text based interfaces.
+      </p>
+    </div>
+    <div id="interests">
+      <h3>Interests</h3>
+      <figure>
+        <img alt="cities" src="city.jpg" />
+        <figcaption>Exploring cities</figcaption>
+      </figure>
+      <figure>
+        <img alt="nature" src="nature.jpg" />
+        <figcaption>Getting lost in nature</figcaption>
+      </figure>
+      <figure>
+        <img alt="transportation" src="transportation.jpg" />
+        <figcaption>Active transportation</figcaption>
+      </figure>
+    </div>
+    <div id="contact">
+      <h3>Contact</h3>
+      <p>Contact me andrewtspalding at gmail dot com.</p>
+      <p>Find me on <a href="github.com/aspalding">github</a> or <a href="https://mastodon.online/@andrew773">mastodon</a>.</p>
+    </div>
   </main>
   <footer>
-    <p>contact me andrewtspalding at gmail dot com or in the fediverse andrew773 at mastodon dot online</p>
+    <small>2024</small>
   </footer>
 </body>
 </html>
